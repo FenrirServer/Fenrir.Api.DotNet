@@ -1,0 +1,2200 @@
+openapi: 3.0.0
+info:
+  description: "# Introduction\n\nThe Fenrir Cloud API allows you to interact with\
+    \ Fenrir Cloud \nand manage Applications, Deployments, and other resources \n\
+    using conventional HTTP requests.\n\n\n\n## Authentication\n\nThe Fenrir Cloud\
+    \ API uses API keys for the authentication. \nYou can create new API keys in your\
+    \ Fenrir Cloud dashboard.\n\nYour bearer API key must be set in the \"Authorization\"\
+    \ header, for example:\n\n```bash\ncurl https://api.fenrircloud.com/1.0/api/applications\
+    \ \\\n   -H \"Accept: application/json\" \\\n   -H \"Authorization: Bearer FENRIR_API_KEY\"\
+    \n```\n\n## Responses\n\nWhen a request is successful, a response body will typically\
+    \ contain a JSON object. \nFor DELETE requests, a response with successful HTTP\
+    \ 204 NO_CONTENT status and a simple status will be returned.\n\nFor other request,\
+    \ a JSON object will contain a requested object.\nIf list of objects is requested,\
+    \ an array of them will be returned instead. \n\n### Example Response (Single\
+    \ Object)\n\n```json\n{\n  \"application\": {\n    \"name\": \"my-app\",\n   \
+    \ ...\n  }\n}\n```\n\n### Example Response (Multiple Objects)\n\n```json\n{\n\
+    \  \"applications\": \n    [\n        {\n          \"name\": \"my-app\",\n   \
+    \       ...\n        },\n        {\n          \"name\": \"another-app\",\n   \
+    \       ...\n        }\n    ]\n}\n```\n\n## Error Handling\n\nDepending on the\
+    \ issue, a *4XX* status code will be returned. \nA body will contain a JSON object\
+    \ with the details of the message.\n\nInside a JSON object, an error message will\
+    \ be included. \n\nFor 400 Bad Request errors caused by validation issues, additional\
+    \ `errors` key will be set.\nThat key will contain detailed information about\
+    \ each validation error.\n\n### Example Error Response\n\n```json\n{\n  \"message\"\
+    : \"Invalid Request\",\n  \"errors\": [\n    {\n      \"field\": \"name\",\n \
+    \     \"errors\": [\"must not contain special characters\", \"must not be longer\
+    \ than 128 character\"]\n    },\n    ...\n  ]\n}\n```\n\n"
+  title: Fenrir Api
+  version: v1
+servers:
+- url: https://api.fenrircloud.com/1.0/api
+security:
+- ApiKeyAuth: []
+paths:
+  /api_tokens:
+    get:
+      description: Lists all API tokens on your account.
+      operationId: get_api_tokens
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiTokenListResponse'
+          description: "Request fulfilled, document follows"
+      tags:
+      - fenrir
+    post:
+      description: Creates a new API token.
+      operationId: create_api_token
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ApiToken'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiTokenResponse'
+          description: "Request fulfilled, document follows"
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BadRequestResponse'
+          description: Bad request syntax or unsupported method
+      tags:
+      - fenrir
+  /api_tokens/{token_uuid}:
+    delete:
+      description: Deletes an API token.
+      operationId: delete_api_token
+      parameters:
+      - explode: false
+        in: path
+        name: token_uuid
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "204":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Response'
+          description: "Request fulfilled, nothing follows"
+      tags:
+      - fenrir
+    get:
+      description: Retrieves an API token.
+      operationId: get_api_token
+      parameters:
+      - explode: false
+        in: path
+        name: token_uuid
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiTokenListResponse'
+          description: "Request fulfilled, document follows"
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NotFoundResponse'
+          description: Nothing matches the given URI
+      tags:
+      - fenrir
+  /applications:
+    get:
+      description: Lists all applications on your account.
+      operationId: get_applications
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApplicationListResponse'
+          description: "Request fulfilled, document follows"
+      tags:
+      - fenrir
+    post:
+      description: Creates a new application.
+      operationId: create_application
+      requestBody:
+        $ref: '#/components/requestBodies/Application'
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApplicationResponse'
+          description: "Request fulfilled, document follows"
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BadRequestResponse'
+          description: Bad request syntax or unsupported method
+      tags:
+      - fenrir
+  /applications/{application_uuid}:
+    delete:
+      description: Deletes an application.
+      operationId: delete_application
+      parameters:
+      - explode: false
+        in: path
+        name: application_uuid
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "204":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Response'
+          description: "Request fulfilled, nothing follows"
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BadRequestResponse'
+          description: Bad request syntax or unsupported method
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NotFoundResponse'
+          description: Nothing matches the given URI
+      tags:
+      - fenrir
+    get:
+      description: Retrieves an application.
+      operationId: get_application
+      parameters:
+      - explode: false
+        in: path
+        name: application_uuid
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApplicationResponse'
+          description: "Request fulfilled, document follows"
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NotFoundResponse'
+          description: Nothing matches the given URI
+      tags:
+      - fenrir
+    put:
+      description: Updates an application.
+      operationId: update_application
+      parameters:
+      - explode: false
+        in: path
+        name: application_uuid
+        required: true
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        $ref: '#/components/requestBodies/Application'
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApplicationResponse'
+          description: "Request fulfilled, document follows"
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BadRequestResponse'
+          description: Bad request syntax or unsupported method
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NotFoundResponse'
+          description: Nothing matches the given URI
+      tags:
+      - fenrir
+  /applications/{application_uuid}/configuration:
+    get:
+      description: Retrieves current application configuration.
+      operationId: get_current_application_configuration
+      parameters:
+      - explode: false
+        in: path
+        name: application_uuid
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApplicationConfigurationResponse'
+          description: "Request fulfilled, document follows"
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NotFoundResponse'
+          description: Nothing matches the given URI
+      tags:
+      - fenrir
+    post:
+      description: Creates an application configuration.
+      operationId: create_application_configuration
+      parameters:
+      - explode: false
+        in: path
+        name: application_uuid
+        required: true
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ApplicationConfiguration'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApplicationConfigurationResponse'
+          description: "Request fulfilled, document follows"
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BadRequestResponse'
+          description: Bad request syntax or unsupported method
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NotFoundResponse'
+          description: Nothing matches the given URI
+      tags:
+      - fenrir
+  /applications/{application_uuid}/configurations:
+    get:
+      description: Lists all application configurations ever created.
+      operationId: get_application_configurations
+      parameters:
+      - explode: false
+        in: path
+        name: application_uuid
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApplicationConfigurationListResponse'
+          description: "Request fulfilled, document follows"
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NotFoundResponse'
+          description: Nothing matches the given URI
+      tags:
+      - fenrir
+  /applications/{application_uuid}/configurations/{configuration_uuid}:
+    get:
+      description: Retrieves an application configuration.
+      operationId: get_application_configuration
+      parameters:
+      - explode: false
+        in: path
+        name: configuration_uuid
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: application_uuid
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApplicationConfigurationResponse'
+          description: "Request fulfilled, document follows"
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NotFoundResponse'
+          description: Nothing matches the given URI
+      tags:
+      - fenrir
+  /applications/{application_uuid}/deployments:
+    get:
+      description: Lists all application deployments.
+      operationId: get_deployments
+      parameters:
+      - explode: false
+        in: path
+        name: application_uuid
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DeploymentListResponse'
+          description: "Request fulfilled, document follows"
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NotFoundResponse'
+          description: Nothing matches the given URI
+      tags:
+      - fenrir
+    post:
+      description: Crates a new application deployment.
+      operationId: create_deployment
+      parameters:
+      - explode: false
+        in: path
+        name: application_uuid
+        required: true
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Deployment'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DeploymentResponse'
+          description: "Request fulfilled, document follows"
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BadRequestResponse'
+          description: Bad request syntax or unsupported method
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NotFoundResponse'
+          description: Nothing matches the given URI
+      tags:
+      - fenrir
+  /applications/{application_uuid}/deployments/{deployment_uuid}:
+    delete:
+      description: Deletes an application deployment.
+      operationId: delete_deployment
+      parameters:
+      - explode: false
+        in: path
+        name: application_uuid
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: deployment_uuid
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "204":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Response'
+          description: "Request fulfilled, nothing follows"
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NotFoundResponse'
+          description: Nothing matches the given URI
+      tags:
+      - fenrir
+    get:
+      description: Retrieves an application deployment.
+      operationId: get_deployment
+      parameters:
+      - explode: false
+        in: path
+        name: application_uuid
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: deployment_uuid
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DeploymentResponse'
+          description: "Request fulfilled, document follows"
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NotFoundResponse'
+          description: Nothing matches the given URI
+      tags:
+      - fenrir
+  /applications/{application_uuid}/deployments/{deployment_uuid}/instances:
+    get:
+      description: Lists all application instances for a given deployment.
+      operationId: get_instances
+      parameters:
+      - explode: false
+        in: path
+        name: application_uuid
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: deployment_uuid
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApplicationInstanceListResponse'
+          description: "Request fulfilled, document follows"
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NotFoundResponse'
+          description: Nothing matches the given URI
+      tags:
+      - fenrir
+  /applications/{application_uuid}/deployments/{deployment_uuid}/instances/{instance_uuid}:
+    get:
+      description: Retrieves an application instance.
+      operationId: get_instance
+      parameters:
+      - explode: false
+        in: path
+        name: instance_uuid
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: application_uuid
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: deployment_uuid
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApplicationInstanceResponse'
+          description: "Request fulfilled, document follows"
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NotFoundResponse'
+          description: Nothing matches the given URI
+      tags:
+      - fenrir
+  /applications/{application_uuid}/deployments/{deployment_uuid}/instances/{instance_uuid}/logs:
+    get:
+      description: Retrieves application instance logs.
+      operationId: get_instance_logs
+      parameters:
+      - explode: false
+        in: path
+        name: instance_uuid
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: application_uuid
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: deployment_uuid
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InstanceLogs'
+          description: "Request fulfilled, document follows"
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NotFoundResponse'
+          description: Nothing matches the given URI
+      tags:
+      - fenrir
+  /applications/{application_uuid}/deployments/{deployment_uuid}/instances/{instance_uuid}/logs/preview:
+    get:
+      description: Retrieves a small number of most recent application instance logs.
+      operationId: get_instance_logs_preview
+      parameters:
+      - explode: false
+        in: path
+        name: instance_uuid
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: application_uuid
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: deployment_uuid
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InstanceLogsPreview'
+          description: "Request fulfilled, document follows"
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NotFoundResponse'
+          description: Nothing matches the given URI
+      tags:
+      - fenrir
+  /applications/{application_uuid}/deployments/{deployment_uuid}/stats:
+    get:
+      description: Retrieves deployment stats.
+      operationId: get_deployment_stats
+      parameters:
+      - explode: true
+        in: query
+        name: filter
+        required: false
+        schema:
+          items:
+            type: string
+          type: array
+        style: form
+      - explode: false
+        in: path
+        name: application_uuid
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: deployment_uuid
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DeploymentStatsResponse'
+          description: "Request fulfilled, document follows"
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NotFoundResponse'
+          description: Nothing matches the given URI
+      tags:
+      - fenrir
+  /applications/{application_uuid}/images:
+    get:
+      description: Lists all application images.
+      operationId: get_images
+      parameters:
+      - explode: false
+        in: path
+        name: application_uuid
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ImageListResponse'
+          description: "Request fulfilled, document follows"
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NotFoundResponse'
+          description: Nothing matches the given URI
+      tags:
+      - fenrir
+  /applications/{application_uuid}/matchmaking/queues:
+    get:
+      description: Lists all matchmaking queues for a given application.
+      operationId: get_matchmaking_queues
+      parameters:
+      - explode: false
+        in: path
+        name: application_uuid
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MatchmakingQueueListResponse'
+          description: "Request fulfilled, document follows"
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NotFoundResponse'
+          description: Nothing matches the given URI
+      tags:
+      - fenrir
+    post:
+      description: Creates a new matchmaking queue.
+      operationId: create_matchmaking_queue
+      parameters:
+      - explode: false
+        in: path
+        name: application_uuid
+        required: true
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        $ref: '#/components/requestBodies/MatchmakingQueue'
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MatchmakingQueueResponse'
+          description: "Request fulfilled, document follows"
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BadRequestResponse'
+          description: Bad request syntax or unsupported method
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NotFoundResponse'
+          description: Nothing matches the given URI
+      tags:
+      - fenrir
+  /applications/{application_uuid}/matchmaking/queues/{queue_uuid}:
+    delete:
+      description: Deletes a matchmaking queue.
+      operationId: delete_matchmaking_queue
+      parameters:
+      - explode: false
+        in: path
+        name: queue_uuid
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: application_uuid
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "204":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Response'
+          description: "Request fulfilled, nothing follows"
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NotFoundResponse'
+          description: Nothing matches the given URI
+      tags:
+      - fenrir
+    get:
+      description: Retrieves a matchmaking queue.
+      operationId: get_matchmaking_queue
+      parameters:
+      - explode: false
+        in: path
+        name: queue_uuid
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: application_uuid
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MatchmakingQueueResponse'
+          description: "Request fulfilled, document follows"
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NotFoundResponse'
+          description: Nothing matches the given URI
+      tags:
+      - fenrir
+    put:
+      description: Updates a matchmaking queue.
+      operationId: update_matchmaking_queue
+      parameters:
+      - explode: false
+        in: path
+        name: queue_uuid
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: application_uuid
+        required: true
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        $ref: '#/components/requestBodies/MatchmakingQueue'
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MatchmakingQueueResponse'
+          description: "Request fulfilled, document follows"
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BadRequestResponse'
+          description: Bad request syntax or unsupported method
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NotFoundResponse'
+          description: Nothing matches the given URI
+      tags:
+      - fenrir
+  /applications/{application_uuid}/matchmaking/queues/{queue_uuid}/configuration:
+    get:
+      description: Retrieves current matchmaking queue configuration.
+      operationId: get_current_matchmaking_queue_configuration
+      parameters:
+      - explode: false
+        in: path
+        name: queue_uuid
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: application_uuid
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MatchmakingQueueConfigurationResponse'
+          description: "Request fulfilled, document follows"
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NotFoundResponse'
+          description: Nothing matches the given URI
+      tags:
+      - fenrir
+    post:
+      description: Creates a new matchmaking queue configuration.
+      operationId: create_matchmaking_queue_configuration
+      parameters:
+      - explode: false
+        in: path
+        name: queue_uuid
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: application_uuid
+        required: true
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MatchmakingQueueConfiguration'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MatchmakingQueueConfigurationResponse'
+          description: "Request fulfilled, document follows"
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BadRequestResponse'
+          description: Bad request syntax or unsupported method
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NotFoundResponse'
+          description: Nothing matches the given URI
+      tags:
+      - fenrir
+  /applications/{application_uuid}/matchmaking/queues/{queue_uuid}/configurations:
+    get:
+      description: Lists matchmaking queue configurations.
+      operationId: get_matchmaking_queue_configurations
+      parameters:
+      - explode: false
+        in: path
+        name: queue_uuid
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: application_uuid
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MatchmakingQueueConfigurationListResponse'
+          description: "Request fulfilled, document follows"
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NotFoundResponse'
+          description: Nothing matches the given URI
+      tags:
+      - fenrir
+  /applications/{application_uuid}/matchmaking/queues/{queue_uuid}/configurations/{configuration_uuid}:
+    get:
+      description: Retrieves a matchmaking queue configuration.
+      operationId: get_matchmaking_queue_configuration
+      parameters:
+      - explode: false
+        in: path
+        name: configuration_uuid
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: queue_uuid
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: application_uuid
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MatchmakingQueueConfigurationResponse'
+          description: "Request fulfilled, document follows"
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NotFoundResponse'
+          description: Nothing matches the given URI
+      tags:
+      - fenrir
+  /applications/{application_uuid}/stats:
+    get:
+      description: Retrieves application stats.
+      operationId: get_application_stats
+      parameters:
+      - explode: true
+        in: query
+        name: filter
+        required: false
+        schema:
+          items:
+            type: string
+          type: array
+        style: form
+      - explode: false
+        in: path
+        name: application_uuid
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApplicationStatsResponse'
+          description: "Request fulfilled, document follows"
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NotFoundResponse'
+          description: Nothing matches the given URI
+      tags:
+      - fenrir
+components:
+  requestBodies:
+    Application:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Application'
+      required: true
+    MatchmakingQueue:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/MatchmakingQueue'
+      required: true
+  schemas:
+    ApiToken:
+      example:
+        token_plaintext: 4f03ff9f9caf4e1388126436b0c841f4
+        application_uuid: e1bbf5bd471c484fa2f7989f048dbbbc
+        created: 2024-01-22T19:28:42Z
+        is_public: true
+        label: my-token
+        updated: 2024-01-22T19:28:42Z
+        uuid: e1bee97c79ac454bb8bcb81d37ec7e46
+      properties:
+        application_uuid:
+          description: A uuid of the application this token is limited to.
+          example: e1bbf5bd471c484fa2f7989f048dbbbc
+          type: string
+        created:
+          description: Time when the token was created.
+          example: 2024-01-22T19:28:42Z
+          format: date-time
+          readOnly: true
+          type: string
+        is_public:
+          description: A boolean value indicating if this token is a private or a
+            public token.
+          example: true
+          type: boolean
+        label:
+          description: A label for the token.
+          example: my-token
+          maxLength: 128
+          minLength: 4
+          type: string
+        token_plaintext:
+          description: A plain text value of the token. Only returned when the token
+            is created.
+          example: 4f03ff9f9caf4e1388126436b0c841f4
+          readOnly: true
+        updated:
+          description: Time when the token was last updated.
+          example: 2024-01-22T19:28:42Z
+          format: date-time
+          readOnly: true
+          type: string
+        uuid:
+          description: A unique id of the api token.
+          example: e1bee97c79ac454bb8bcb81d37ec7e46
+          readOnly: true
+          type: string
+      type: object
+    ApiTokenListResponse:
+      example:
+        api_tokens:
+        - token_plaintext: 4f03ff9f9caf4e1388126436b0c841f4
+          application_uuid: e1bbf5bd471c484fa2f7989f048dbbbc
+          created: 2024-01-22T19:28:42Z
+          is_public: true
+          label: my-token
+          updated: 2024-01-22T19:28:42Z
+          uuid: e1bee97c79ac454bb8bcb81d37ec7e46
+        - token_plaintext: 4f03ff9f9caf4e1388126436b0c841f4
+          application_uuid: e1bbf5bd471c484fa2f7989f048dbbbc
+          created: 2024-01-22T19:28:42Z
+          is_public: true
+          label: my-token
+          updated: 2024-01-22T19:28:42Z
+          uuid: e1bee97c79ac454bb8bcb81d37ec7e46
+      properties:
+        api_tokens:
+          description: A list of API tokens
+          items:
+            $ref: '#/components/schemas/ApiToken'
+          type: array
+      type: object
+    ApiTokenResponse:
+      example:
+        api_token: ""
+      properties:
+        api_token:
+          allOf:
+          - $ref: '#/components/schemas/ApiToken'
+          description: API token
+      type: object
+    Application:
+      example:
+        configuration: ""
+        created: 2024-01-22T19:28:42Z
+        name: my-application
+        updated: 2024-01-22T19:28:42Z
+        uuid: 262e7483484e40078abfdee18a89e7d2
+      properties:
+        configuration:
+          allOf:
+          - $ref: '#/components/schemas/ApplicationConfiguration'
+          description: Initial configuration of the application.
+        created:
+          description: Time when the application was created.
+          example: 2024-01-22T19:28:42Z
+          format: date-time
+          readOnly: true
+          type: string
+        name:
+          description: A unique name of the application.
+          example: my-application
+          maxLength: 128
+          minLength: 1
+          pattern: "^[0-9a-z\\-]+$"
+          type: string
+        updated:
+          description: Time when the application was last updated.
+          example: 2024-01-22T19:28:42Z
+          format: date-time
+          readOnly: true
+          type: string
+        uuid:
+          description: A unique id of the application.
+          example: 262e7483484e40078abfdee18a89e7d2
+          readOnly: true
+          type: string
+      required:
+      - configuration
+      - name
+      type: object
+    ApplicationConfiguration:
+      example:
+        application_uuid: df345e3497b14f2ca1ecd8c160131d7a
+        created: 2024-01-22T19:28:42Z
+        max_instances: 5
+        min_instances: 1
+        ports:
+        - protocol: udp
+          port_number: 27015
+        - protocol: udp
+          port_number: 27015
+        - protocol: udp
+          port_number: 27015
+        - protocol: udp
+          port_number: 27015
+        - protocol: udp
+          port_number: 27015
+        updated: 2024-01-22T19:28:42Z
+        uuid: 4a56d881916b48ac96e49e448f92f829
+      properties:
+        application_uuid:
+          description: A uuid of the application this configuration is for.
+          example: df345e3497b14f2ca1ecd8c160131d7a
+          readOnly: true
+          type: string
+        created:
+          description: Time when the configuration was created.
+          example: 2024-01-22T19:28:42Z
+          format: date-time
+          readOnly: true
+          type: string
+        max_instances:
+          description: Maximum number of instances.
+          example: 5
+          minimum: 1
+          type: integer
+        min_instances:
+          description: Minimum number of instances.
+          example: 1
+          maximum: 50
+          minimum: 1
+          type: integer
+        ports:
+          description: Ports used by the application.
+          items:
+            $ref: '#/components/schemas/PortConfiguration'
+          maxItems: 100
+          minItems: 0
+          type: array
+        updated:
+          description: Time when the configuration was last updated.
+          example: 2024-01-22T19:28:42Z
+          format: date-time
+          readOnly: true
+          type: string
+        uuid:
+          description: A unique id of this application configuration.
+          example: 4a56d881916b48ac96e49e448f92f829
+          readOnly: true
+          type: string
+      required:
+      - max_instances
+      - min_instances
+      type: object
+    ApplicationConfigurationListResponse:
+      example:
+        configurations:
+        - application_uuid: df345e3497b14f2ca1ecd8c160131d7a
+          created: 2024-01-22T19:28:42Z
+          max_instances: 5
+          min_instances: 1
+          ports:
+          - protocol: udp
+            port_number: 27015
+          - protocol: udp
+            port_number: 27015
+          - protocol: udp
+            port_number: 27015
+          - protocol: udp
+            port_number: 27015
+          - protocol: udp
+            port_number: 27015
+          updated: 2024-01-22T19:28:42Z
+          uuid: 4a56d881916b48ac96e49e448f92f829
+        - application_uuid: df345e3497b14f2ca1ecd8c160131d7a
+          created: 2024-01-22T19:28:42Z
+          max_instances: 5
+          min_instances: 1
+          ports:
+          - protocol: udp
+            port_number: 27015
+          - protocol: udp
+            port_number: 27015
+          - protocol: udp
+            port_number: 27015
+          - protocol: udp
+            port_number: 27015
+          - protocol: udp
+            port_number: 27015
+          updated: 2024-01-22T19:28:42Z
+          uuid: 4a56d881916b48ac96e49e448f92f829
+      properties:
+        configurations:
+          description: A list of application configurations.
+          items:
+            $ref: '#/components/schemas/ApplicationConfiguration'
+          type: array
+      type: object
+    ApplicationConfigurationResponse:
+      example:
+        configuration: ""
+      properties:
+        configuration:
+          allOf:
+          - $ref: '#/components/schemas/ApplicationConfiguration'
+          description: An application configuration.
+      type: object
+    ApplicationInstance:
+      example:
+        deployment_uuid: f01ffac3b2774b0fb95c0b510292e3f7
+        hostname: host001.fenrircloud.com
+        application_uuid: 7bc16159acff4b689fe7224a7c79fb96
+        created: 2024-01-22T19:28:42Z
+        desired_state: running
+        state: created
+        ports:
+        - target_port: 27000
+          protocol: udp
+          published_port: 27012
+        - target_port: 27000
+          protocol: udp
+          published_port: 27012
+        updated: 2024-01-22T19:28:42Z
+        uuid: be29c08199514affa4580f4d4d2fecd1
+        container_id: 0d65495b663f42ef835cc2801fb9feba
+      properties:
+        application_uuid:
+          description: A uuid of the application.
+          example: 7bc16159acff4b689fe7224a7c79fb96
+          type: string
+        container_id:
+          description: A unique id of the container
+          example: 0d65495b663f42ef835cc2801fb9feba
+          type: string
+        created:
+          description: Time when the instance was created.
+          example: 2024-01-22T19:28:42Z
+          format: date-time
+          readOnly: true
+          type: string
+        deployment_uuid:
+          description: A uuid of the deployment
+          example: f01ffac3b2774b0fb95c0b510292e3f7
+          type: string
+        desired_state:
+          description: Desired state of the instance. Corresponds with docker container
+            states.
+          example: running
+          type: string
+        hostname:
+          description: A hostname of the node the instance is running on.
+          example: host001.fenrircloud.com
+          type: string
+        ports:
+          description: 'A list of ports exposed on the instance. '
+          items:
+            $ref: '#/components/schemas/ApplicationInstancePort'
+          type: array
+        state:
+          description: State of the running instance. Corresponds with docker container
+            states.
+          example: created
+          type: string
+        updated:
+          description: Time when the instance was last updated.
+          example: 2024-01-22T19:28:42Z
+          format: date-time
+          readOnly: true
+          type: string
+        uuid:
+          description: A unique id of the instance.
+          example: be29c08199514affa4580f4d4d2fecd1
+          type: string
+      type: object
+    ApplicationInstanceListResponse:
+      example:
+        instances:
+        - deployment_uuid: f01ffac3b2774b0fb95c0b510292e3f7
+          hostname: host001.fenrircloud.com
+          application_uuid: 7bc16159acff4b689fe7224a7c79fb96
+          created: 2024-01-22T19:28:42Z
+          desired_state: running
+          state: created
+          ports:
+          - target_port: 27000
+            protocol: udp
+            published_port: 27012
+          - target_port: 27000
+            protocol: udp
+            published_port: 27012
+          updated: 2024-01-22T19:28:42Z
+          uuid: be29c08199514affa4580f4d4d2fecd1
+          container_id: 0d65495b663f42ef835cc2801fb9feba
+        - deployment_uuid: f01ffac3b2774b0fb95c0b510292e3f7
+          hostname: host001.fenrircloud.com
+          application_uuid: 7bc16159acff4b689fe7224a7c79fb96
+          created: 2024-01-22T19:28:42Z
+          desired_state: running
+          state: created
+          ports:
+          - target_port: 27000
+            protocol: udp
+            published_port: 27012
+          - target_port: 27000
+            protocol: udp
+            published_port: 27012
+          updated: 2024-01-22T19:28:42Z
+          uuid: be29c08199514affa4580f4d4d2fecd1
+          container_id: 0d65495b663f42ef835cc2801fb9feba
+      properties:
+        instances:
+          description: A list of application instances.
+          items:
+            $ref: '#/components/schemas/ApplicationInstance'
+          type: array
+      type: object
+    ApplicationInstancePort:
+      example:
+        target_port: 27000
+        protocol: udp
+        published_port: 27012
+      properties:
+        protocol:
+          description: "A protocol of the port. May be \"tcp\", \"udp\" or empty if\
+            \ both."
+          example: udp
+          type: string
+        published_port:
+          description: A published port of the container. This is the port exposed
+            from the external network.
+          example: 27012
+          type: integer
+        target_port:
+          description: A target port on the container.
+          example: 27000
+          type: integer
+      type: object
+    ApplicationInstanceResponse:
+      example:
+        instance: ""
+      properties:
+        instance:
+          allOf:
+          - $ref: '#/components/schemas/ApplicationInstance'
+          description: An application instance.
+      type: object
+    ApplicationInstanceStats:
+      properties:
+        ccu:
+          description: A number of players connected to this instance.
+          example: 50
+          type: integer
+        cpu:
+          description: CPU utilization by this instance.
+          example: 55.5
+          type: number
+        mem:
+          description: "Memory used by this instance, in megabytes."
+          example: 25
+          type: number
+      type: object
+    ApplicationListResponse:
+      example:
+        applications:
+        - configuration: ""
+          created: 2024-01-22T19:28:42Z
+          name: my-application
+          updated: 2024-01-22T19:28:42Z
+          uuid: 262e7483484e40078abfdee18a89e7d2
+        - configuration: ""
+          created: 2024-01-22T19:28:42Z
+          name: my-application
+          updated: 2024-01-22T19:28:42Z
+          uuid: 262e7483484e40078abfdee18a89e7d2
+      properties:
+        applications:
+          description: A list of applications.
+          items:
+            $ref: '#/components/schemas/Application'
+          type: array
+      type: object
+    ApplicationResponse:
+      example:
+        application: ""
+      properties:
+        application:
+          allOf:
+          - $ref: '#/components/schemas/Application'
+          description: An application.
+      type: object
+    ApplicationStats:
+      properties:
+        ccu_total:
+          description: A number of players currently connected.
+          example: 100
+          type: integer
+        cpu_avg:
+          description: The average CPU utilization of the application across all instances.
+          example: 55.5
+          type: number
+        mem_avg:
+          description: "The average memory utilization of the application across all\
+            \ instances, in megabytes."
+          example: 25
+          type: number
+        num_deployments:
+          description: The total number of deployments of the application.
+          example: 5
+          type: integer
+        num_instances:
+          description: The total number of instances of the application across all
+            deployments
+          example: 5
+          type: integer
+      type: object
+    ApplicationStatsResponse:
+      example:
+        stats: ""
+      properties:
+        stats:
+          allOf:
+          - $ref: '#/components/schemas/ApplicationStats'
+          description: Application stats.
+      type: object
+    BadRequestResponse:
+      properties:
+        errors:
+          description: An optional list of validation errors
+          items:
+            $ref: '#/components/schemas/ValidationError'
+          type: array
+        message:
+          description: An error message.
+          example: Invalid Request
+          type: string
+      type: object
+    Deployment:
+      example:
+        application_uuid: ac9fc73a152e4e10b87a1ad8a87f02cb
+        created: 2024-01-22T19:28:42Z
+        configuration_uuid: f9821542d679488f87085cd74d2472cd
+        image_tag: 1.0.0
+        label: production
+        updated: 2024-01-22T19:28:42Z
+        uuid: e1bee97c79ac454bb8bcb81d37ec7e46
+      properties:
+        application_uuid:
+          description: A uuid of the application this deployment is for.
+          example: ac9fc73a152e4e10b87a1ad8a87f02cb
+          readOnly: true
+          type: string
+        configuration_uuid:
+          description: A uuid of the current application configuration.
+          example: f9821542d679488f87085cd74d2472cd
+          readOnly: true
+          type: string
+        created:
+          description: Time when the deployment was created.
+          example: 2024-01-22T19:28:42Z
+          format: date-time
+          readOnly: true
+          type: string
+        image_tag:
+          description: An image tag for your application. Possible image tags can
+            be obtained by calling "GET /application/<application_uuid>/images" endpoint
+          example: 1.0.0
+          maxLength: 128
+          minLength: 1
+          type: string
+        label:
+          description: A label for your deployment
+          example: production
+          maxLength: 128
+          minLength: 1
+          type: string
+        updated:
+          description: Time when the deployment was last updated.
+          example: 2024-01-22T19:28:42Z
+          format: date-time
+          readOnly: true
+          type: string
+        uuid:
+          description: A unique id of the deployment.
+          example: e1bee97c79ac454bb8bcb81d37ec7e46
+          readOnly: true
+          type: string
+      required:
+      - image_tag
+      - label
+      type: object
+    DeploymentListResponse:
+      example:
+        deployments:
+        - application_uuid: ac9fc73a152e4e10b87a1ad8a87f02cb
+          created: 2024-01-22T19:28:42Z
+          configuration_uuid: f9821542d679488f87085cd74d2472cd
+          image_tag: 1.0.0
+          label: production
+          updated: 2024-01-22T19:28:42Z
+          uuid: e1bee97c79ac454bb8bcb81d37ec7e46
+        - application_uuid: ac9fc73a152e4e10b87a1ad8a87f02cb
+          created: 2024-01-22T19:28:42Z
+          configuration_uuid: f9821542d679488f87085cd74d2472cd
+          image_tag: 1.0.0
+          label: production
+          updated: 2024-01-22T19:28:42Z
+          uuid: e1bee97c79ac454bb8bcb81d37ec7e46
+      properties:
+        deployments:
+          description: A list of application deployments.
+          items:
+            $ref: '#/components/schemas/Deployment'
+          type: array
+      type: object
+    DeploymentResponse:
+      example:
+        deployment: ""
+      properties:
+        deployment:
+          allOf:
+          - $ref: '#/components/schemas/Deployment'
+          description: An application deployment.
+      type: object
+    DeploymentStats:
+      properties:
+        ccu_total:
+          description: A number of players currently connected.
+          example: 100
+          type: integer
+        cpu_avg:
+          description: The average CPU utilization of the application across all instances
+            in this deployment.
+          example: 55.5
+          type: number
+        instance_stats:
+          additionalProperties:
+            $ref: '#/components/schemas/ApplicationInstanceStats'
+          description: "A dictionary of instance stats, per instance."
+          type: object
+        mem_avg:
+          description: "The average memory utilization of the application across all\
+            \ instances in this deployment, in megabytes."
+          example: 25
+          type: number
+        num_instances:
+          description: The total number of instances in this deployment.
+          example: 10
+          type: integer
+      type: object
+    DeploymentStatsResponse:
+      example:
+        stats: ""
+      properties:
+        stats:
+          allOf:
+          - $ref: '#/components/schemas/DeploymentStats'
+          description: Deployment stats.
+      type: object
+    Image:
+      properties:
+        created:
+          description: Time when the image was created.
+          example: 2024-01-22T19:28:42Z
+          format: date-time
+          readOnly: true
+          type: string
+        id:
+          description: A unique id of this image
+          example: ab9fccc4d4c949a4ae12e4206277e8b4
+          type: string
+        last_tag_time:
+          description: Time when image was last tagged
+          example: 2024-01-22T19:28:42Z
+          format: date-time
+          type: string
+        size:
+          description: "The size of the image, in megabytes."
+          example: 25
+          type: integer
+        tags:
+          description: A list of tags attached to this image
+          example:
+          - 1.0.0
+          items:
+            type: string
+          type: array
+      type: object
+    ImageListResponse:
+      example:
+        images: A list of application images.
+      properties:
+        images:
+          example: A list of application images.
+          items:
+            $ref: '#/components/schemas/Image'
+          type: array
+      type: object
+    InstanceLogs:
+      example:
+        url: https://api.fenrircloud.com/1.0/logs/24b8bf3fe205468986f2bbad63d1929ea74a3f6db09a4a8eb2229a19ea207dc1/instance.log
+      properties:
+        url:
+          description: A url at which the log file can be downloaded.
+          example: https://api.fenrircloud.com/1.0/logs/24b8bf3fe205468986f2bbad63d1929ea74a3f6db09a4a8eb2229a19ea207dc1/instance.log
+          type: string
+      type: object
+    InstanceLogsPreview:
+      example:
+        log_lines:
+        - "2023-12-05T02:40:26.014317355Z 2023/12/05 02:40:26 [Info] Application started."
+        - "2023-12-05T02:40:26.014311573Z 2023/12/05 02:40:26 [Debug] Player connected"
+      properties:
+        log_lines:
+          description: Most recent log lines.
+          example:
+          - "2023-12-05T02:40:26.014317355Z 2023/12/05 02:40:26 [Info] Application\
+            \ started."
+          - "2023-12-05T02:40:26.014311573Z 2023/12/05 02:40:26 [Debug] Player connected"
+          items:
+            type: string
+          type: array
+      type: object
+    MatchmakingQueue:
+      example:
+        configuration: ""
+        created: 2024-01-22T19:28:42Z
+        name: my-queue
+        updated: 2024-01-22T19:28:42Z
+        uuid: 146f44647dd941a89dbe8d487b7aa1ca
+      properties:
+        configuration:
+          allOf:
+          - $ref: '#/components/schemas/MatchmakingQueueConfiguration'
+          description: An initial configuration of the matchmaking queue.
+        created:
+          description: Time when the matchmaking queue was created.
+          example: 2024-01-22T19:28:42Z
+          format: date-time
+          readOnly: true
+          type: string
+        name:
+          description: A name of the matchmaking queue.
+          example: my-queue
+          maxLength: 128
+          minLength: 1
+          pattern: "^[0-9a-z\\-_]+$"
+          type: string
+        updated:
+          description: Time when the matchmaking queue was last updated.
+          example: 2024-01-22T19:28:42Z
+          format: date-time
+          readOnly: true
+          type: string
+        uuid:
+          description: A unique id of the matchmaking queue.
+          example: 146f44647dd941a89dbe8d487b7aa1ca
+          readOnly: true
+          type: string
+      required:
+      - configuration
+      - name
+      type: object
+    MatchmakingQueueConfiguration:
+      example:
+        confirmation_required: true
+        deployment_uuid: a37e34eb25e64657bf48e40f5c44b405
+        teams:
+        - name: counter_terrorists
+          max_players: 5
+          min_players: 5
+        - name: counter_terrorists
+          max_players: 5
+          min_players: 5
+        created: 2024-01-22T19:28:42Z
+        confirmation_time_seconds: 10
+        player_properties:
+        - default_value: "100"
+          type: int
+          key: rank
+          required: true
+        - default_value: "100"
+          type: int
+          key: rank
+          required: true
+        team_rules:
+        - difference_value: 20
+          property_key: rank
+          type: max_difference_between_value_average
+        - difference_value: 20
+          property_key: rank
+          type: max_difference_between_value_average
+        uuid: 9e97b6a2cb8c443982ec9445647c7858
+        version: "1.0"
+        player_rules:
+        - difference_value: 20
+          property_key: rank
+          type: value_equality
+        - difference_value: 20
+          property_key: rank
+          type: value_equality
+      properties:
+        confirmation_required:
+          description: "A boolean value indicating if match confirmation is required.\
+            \ If set to true, players will receive confirmation event before the match\
+            \ is formed. All matched players must confirm their participation within\
+            \ a time specified with \"confirmation_time_seconds\", otherwise match\
+            \ is aborted."
+          example: true
+          type: boolean
+        confirmation_time_seconds:
+          description: A number of seconds given to players to confirm their match
+            participation.
+          example: 10
+          type: number
+        created:
+          description: Time when the configuration was created.
+          example: 2024-01-22T19:28:42Z
+          format: date-time
+          readOnly: true
+          type: string
+        deployment_uuid:
+          description: "A uuid of the deployment this matchmaking queue will point\
+            \ at. When a match is formed, a server is selected from the specified\
+            \ deployment."
+          example: a37e34eb25e64657bf48e40f5c44b405
+          type: string
+        player_properties:
+          description: An array of player properties.
+          items:
+            $ref: '#/components/schemas/MatchmakingQueueConfigurationPlayerProperty'
+          type: array
+        player_rules:
+          description: An array of player rules.
+          items:
+            $ref: '#/components/schemas/MatchmakingQueueConfigurationPlayerRule'
+          type: array
+        team_rules:
+          description: An array of team rules.
+          items:
+            $ref: '#/components/schemas/MatchmakingQueueConfigurationTeamRule'
+          type: array
+        teams:
+          description: An array of teams.
+          items:
+            $ref: '#/components/schemas/MatchmakingQueueConfigurationTeam'
+          type: array
+        uuid:
+          description: A unique id of the matchmaking queue configuration.
+          example: 9e97b6a2cb8c443982ec9445647c7858
+          readOnly: true
+          type: string
+        version:
+          description: A configuration schema version.
+          enum:
+          - "1.0"
+          example: "1.0"
+          type: string
+      required:
+      - deployment_uuid
+      - version
+      type: object
+    MatchmakingQueueConfigurationListResponse:
+      example:
+        configurations:
+        - confirmation_required: true
+          deployment_uuid: a37e34eb25e64657bf48e40f5c44b405
+          teams:
+          - name: counter_terrorists
+            max_players: 5
+            min_players: 5
+          - name: counter_terrorists
+            max_players: 5
+            min_players: 5
+          created: 2024-01-22T19:28:42Z
+          confirmation_time_seconds: 10
+          player_properties:
+          - default_value: "100"
+            type: int
+            key: rank
+            required: true
+          - default_value: "100"
+            type: int
+            key: rank
+            required: true
+          team_rules:
+          - difference_value: 20
+            property_key: rank
+            type: max_difference_between_value_average
+          - difference_value: 20
+            property_key: rank
+            type: max_difference_between_value_average
+          uuid: 9e97b6a2cb8c443982ec9445647c7858
+          version: "1.0"
+          player_rules:
+          - difference_value: 20
+            property_key: rank
+            type: value_equality
+          - difference_value: 20
+            property_key: rank
+            type: value_equality
+        - confirmation_required: true
+          deployment_uuid: a37e34eb25e64657bf48e40f5c44b405
+          teams:
+          - name: counter_terrorists
+            max_players: 5
+            min_players: 5
+          - name: counter_terrorists
+            max_players: 5
+            min_players: 5
+          created: 2024-01-22T19:28:42Z
+          confirmation_time_seconds: 10
+          player_properties:
+          - default_value: "100"
+            type: int
+            key: rank
+            required: true
+          - default_value: "100"
+            type: int
+            key: rank
+            required: true
+          team_rules:
+          - difference_value: 20
+            property_key: rank
+            type: max_difference_between_value_average
+          - difference_value: 20
+            property_key: rank
+            type: max_difference_between_value_average
+          uuid: 9e97b6a2cb8c443982ec9445647c7858
+          version: "1.0"
+          player_rules:
+          - difference_value: 20
+            property_key: rank
+            type: value_equality
+          - difference_value: 20
+            property_key: rank
+            type: value_equality
+      properties:
+        configurations:
+          description: A list of matchmaking queue configurations.
+          items:
+            $ref: '#/components/schemas/MatchmakingQueueConfiguration'
+          type: array
+      type: object
+    MatchmakingQueueConfigurationPlayerProperty:
+      example:
+        default_value: "100"
+        type: int
+        key: rank
+        required: true
+      properties:
+        default_value:
+          description: "A default value for a property. If \"required\" is set to\
+            \ false, this default value will be used for tickets that did not specify\
+            \ this property."
+          example: "100"
+          maxLength: 128
+          minLength: 4
+          type: string
+        key:
+          description: A unique key of the property.
+          example: rank
+          maxLength: 128
+          minLength: 1
+          pattern: "^[0-9a-z\\-_]+$"
+          type: string
+        required:
+          description: "A boolean value indicating if this property is required. If\
+            \ set to true, all matchmaking tickets must have this property."
+          example: true
+          type: boolean
+        type:
+          description: "Player property type. Must be \"int\", \"string\", \"bool\"\
+            \ or \"float\"."
+          enum:
+          - int
+          - string
+          - bool
+          - float
+          example: int
+          type: string
+      required:
+      - key
+      - type
+      type: object
+    MatchmakingQueueConfigurationPlayerRule:
+      example:
+        difference_value: 20
+        property_key: rank
+        type: value_equality
+      properties:
+        difference_value:
+          description: A value difference. Must be specified if player rule checks
+            difference between values.
+          example: 20
+          type: number
+        property_key:
+          description: Player property key. Must be specified if a rule is applied
+            to player properties.
+          example: rank
+          maxLength: 128
+          minLength: 1
+          pattern: "^[0-9a-z\\-_]+$"
+          type: string
+        type:
+          description: Player rule type.
+          enum:
+          - value_equality
+          - max_difference_between_values
+          example: value_equality
+          type: string
+      required:
+      - property_key
+      - type
+      type: object
+    MatchmakingQueueConfigurationResponse:
+      example:
+        configuration: ""
+      properties:
+        configuration:
+          allOf:
+          - $ref: '#/components/schemas/MatchmakingQueueConfiguration'
+          description: A matchmaking queue configuration.
+      type: object
+    MatchmakingQueueConfigurationTeam:
+      example:
+        name: counter_terrorists
+        max_players: 5
+        min_players: 5
+      properties:
+        max_players:
+          description: A maximum number of players this team may have.
+          example: 5
+          type: integer
+        min_players:
+          description: A minimum number of players this team must have.
+          example: 5
+          type: integer
+        name:
+          description: A unique name of the team.
+          example: counter_terrorists
+          maxLength: 128
+          minLength: 1
+          pattern: "^[0-9a-z\\-_]+$"
+          type: string
+      required:
+      - max_players
+      - name
+      type: object
+    MatchmakingQueueConfigurationTeamRule:
+      example:
+        difference_value: 20
+        property_key: rank
+        type: max_difference_between_value_average
+      properties:
+        difference_value:
+          description: A value difference. Must be specified if team rule checks difference
+            between values.
+          example: 20
+          type: number
+        property_key:
+          description: Player property key. Must be specified if a rule is applied
+            to player properties.
+          example: rank
+          maxLength: 128
+          minLength: 1
+          pattern: "^[0-9a-z\\-_]+$"
+          type: string
+        type:
+          description: Team rule type.
+          enum:
+          - max_difference_between_value_average
+          - max_difference_between_value_sum
+          example: max_difference_between_value_average
+          type: string
+      required:
+      - property_key
+      - type
+      type: object
+    MatchmakingQueueListResponse:
+      example:
+        queues:
+        - configuration: ""
+          created: 2024-01-22T19:28:42Z
+          name: my-queue
+          updated: 2024-01-22T19:28:42Z
+          uuid: 146f44647dd941a89dbe8d487b7aa1ca
+        - configuration: ""
+          created: 2024-01-22T19:28:42Z
+          name: my-queue
+          updated: 2024-01-22T19:28:42Z
+          uuid: 146f44647dd941a89dbe8d487b7aa1ca
+      properties:
+        queues:
+          description: A list of matchmaking queues.
+          items:
+            $ref: '#/components/schemas/MatchmakingQueue'
+          type: array
+      type: object
+    MatchmakingQueueResponse:
+      example:
+        queue: ""
+      properties:
+        queue:
+          allOf:
+          - $ref: '#/components/schemas/MatchmakingQueue'
+          description: A matchmaking queue.
+      type: object
+    NotFoundResponse:
+      properties:
+        message:
+          description: An error message.
+          example: Application not found
+          type: string
+      type: object
+    PortConfiguration:
+      example:
+        protocol: udp
+        port_number: 27015
+      properties:
+        port_number:
+          description: Port number to expose.
+          example: 27015
+          maximum: 65535
+          minimum: 0
+          type: integer
+        protocol:
+          description: "Protocol. This may be \"tcp\", \"udp\" or empty for both."
+          enum:
+          - tcp
+          - udp
+          - ""
+          example: udp
+          type: string
+      required:
+      - port_number
+      type: object
+    Response:
+      example:
+        status: ok
+      properties:
+        status:
+          description: A status of the operation
+          example: ok
+          type: string
+      type: object
+    ValidationError:
+      properties:
+        errors:
+          description: A list of errors.
+          example:
+          - must not contain whitespaces.
+          - must be between 4 and 128 characters long
+          items:
+            type: string
+          type: array
+        field:
+          description: A field which has validation errors.
+          example: name
+          type: string
+      type: object
+  securitySchemes:
+    ApiKeyAuth:
+      description: Fenrir Cloud API bearer token
+      scheme: bearer
+      type: http
+

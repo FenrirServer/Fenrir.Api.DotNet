@@ -1,0 +1,35 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo><!-- setting GenerateAssemblyInfo to false causes this bug https://github.com/dotnet/project-system/issues/3934 -->
+    <TargetFramework>net8.0</TargetFramework>
+    <AssemblyName>Fenrir.Api</AssemblyName>
+    <PackageId>Fenrir.Api</PackageId>
+    <OutputType>Library</OutputType>
+    <Authors>Fenrir Server</Authors>
+    <Company>Fenrir Server</Company>
+    <AssemblyTitle>OpenAPI Library</AssemblyTitle>
+    <Description>Fenrir Cloud Api for .NET</Description>
+    <Copyright>Fenrir Server, 2024</Copyright>
+    <RootNamespace>Fenrir.Api</RootNamespace>
+    <Version>0.1.0</Version>
+    <DocumentationFile>bin\$(Configuration)\$(TargetFramework)\Fenrir.Api.xml</DocumentationFile>
+    <RepositoryUrl>https://github.com/FenrirServer/Fenrir.Api.DotNet.git</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageReleaseNotes>Auto-generated from Fenrir Cloud Sdk Templates repository: https://github.com/FenrirServer/Cloud.Sdk.Templates</PackageReleaseNotes>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="JsonSubTypes" Version="2.0.1" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+    <PackageReference Include="RestSharp" Version="110.2.0" />
+    <PackageReference Include="Polly" Version="8.1.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="System.Web" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System.Web" />
+  </ItemGroup>
+</Project>
