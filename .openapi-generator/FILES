@@ -45,6 +45,7 @@ docs/NotFoundResponse.md
 docs/PortConfiguration.md
 docs/Response.md
 docs/ValidationError.md
+nuget.config
 src/Fenrir.Api.Test/Api/FenrirApiTests.cs
 src/Fenrir.Api.Test/Fenrir.Api.Test.csproj
 src/Fenrir.Api.Test/Model/ApiTokenListResponseTests.cs
