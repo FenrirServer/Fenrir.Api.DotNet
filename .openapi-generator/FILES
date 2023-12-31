@@ -1,9 +1,9 @@
+.github/workflows/deploy.yaml
 .gitignore
 .openapi-generator-ignore
 Fenrir.Api.sln
 README.md
 api/openapi.yaml
-appveyor.yml
 docs/ApiToken.md
 docs/ApiTokenListResponse.md
 docs/ApiTokenResponse.md
@@ -45,7 +45,6 @@ docs/NotFoundResponse.md
 docs/PortConfiguration.md
 docs/Response.md
 docs/ValidationError.md
-git_push.sh
 src/Fenrir.Api.Test/Api/FenrirApiTests.cs
 src/Fenrir.Api.Test/Fenrir.Api.Test.csproj
 src/Fenrir.Api.Test/Model/ApiTokenListResponseTests.cs
