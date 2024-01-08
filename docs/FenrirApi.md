@@ -798,7 +798,7 @@ catch (ApiException e)
 
 <a id="deletedeployment"></a>
 # **DeleteDeployment**
-> Response DeleteDeployment (string applicationUuid, string deploymentUuid)
+> Response DeleteDeployment (string deploymentUuid, string applicationUuid)
 
 
 
@@ -824,12 +824,12 @@ namespace Example
             config.AccessToken = "YOUR_BEARER_TOKEN";
 
             var apiInstance = new FenrirApi(config);
-            var applicationUuid = "applicationUuid_example";  // string | 
             var deploymentUuid = "deploymentUuid_example";  // string | 
+            var applicationUuid = "applicationUuid_example";  // string | 
 
             try
             {
-                Response result = apiInstance.DeleteDeployment(applicationUuid, deploymentUuid);
+                Response result = apiInstance.DeleteDeployment(deploymentUuid, applicationUuid);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -849,7 +849,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    ApiResponse<Response> response = apiInstance.DeleteDeploymentWithHttpInfo(applicationUuid, deploymentUuid);
+    ApiResponse<Response> response = apiInstance.DeleteDeploymentWithHttpInfo(deploymentUuid, applicationUuid);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -866,8 +866,8 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **applicationUuid** | **string** |  |  |
 | **deploymentUuid** | **string** |  |  |
+| **applicationUuid** | **string** |  |  |
 
 ### Return type
 
@@ -1819,7 +1819,7 @@ catch (ApiException e)
 
 <a id="getdeployment"></a>
 # **GetDeployment**
-> DeploymentResponse GetDeployment (string applicationUuid, string deploymentUuid)
+> DeploymentResponse GetDeployment (string deploymentUuid, string applicationUuid)
 
 
 
@@ -1845,12 +1845,12 @@ namespace Example
             config.AccessToken = "YOUR_BEARER_TOKEN";
 
             var apiInstance = new FenrirApi(config);
-            var applicationUuid = "applicationUuid_example";  // string | 
             var deploymentUuid = "deploymentUuid_example";  // string | 
+            var applicationUuid = "applicationUuid_example";  // string | 
 
             try
             {
-                DeploymentResponse result = apiInstance.GetDeployment(applicationUuid, deploymentUuid);
+                DeploymentResponse result = apiInstance.GetDeployment(deploymentUuid, applicationUuid);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -1870,7 +1870,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    ApiResponse<DeploymentResponse> response = apiInstance.GetDeploymentWithHttpInfo(applicationUuid, deploymentUuid);
+    ApiResponse<DeploymentResponse> response = apiInstance.GetDeploymentWithHttpInfo(deploymentUuid, applicationUuid);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -1887,8 +1887,8 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **applicationUuid** | **string** |  |  |
 | **deploymentUuid** | **string** |  |  |
+| **applicationUuid** | **string** |  |  |
 
 ### Return type
 
@@ -1914,7 +1914,7 @@ catch (ApiException e)
 
 <a id="getdeploymentstats"></a>
 # **GetDeploymentStats**
-> DeploymentStatsResponse GetDeploymentStats (string applicationUuid, string deploymentUuid, List<string> filter = null)
+> DeploymentStatsResponse GetDeploymentStats (string deploymentUuid, string applicationUuid, List<string> filter = null)
 
 
 
@@ -1940,13 +1940,13 @@ namespace Example
             config.AccessToken = "YOUR_BEARER_TOKEN";
 
             var apiInstance = new FenrirApi(config);
-            var applicationUuid = "applicationUuid_example";  // string | 
             var deploymentUuid = "deploymentUuid_example";  // string | 
+            var applicationUuid = "applicationUuid_example";  // string | 
             var filter = new List<string>(); // List<string> |  (optional) 
 
             try
             {
-                DeploymentStatsResponse result = apiInstance.GetDeploymentStats(applicationUuid, deploymentUuid, filter);
+                DeploymentStatsResponse result = apiInstance.GetDeploymentStats(deploymentUuid, applicationUuid, filter);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -1966,7 +1966,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    ApiResponse<DeploymentStatsResponse> response = apiInstance.GetDeploymentStatsWithHttpInfo(applicationUuid, deploymentUuid, filter);
+    ApiResponse<DeploymentStatsResponse> response = apiInstance.GetDeploymentStatsWithHttpInfo(deploymentUuid, applicationUuid, filter);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -1983,8 +1983,8 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **applicationUuid** | **string** |  |  |
 | **deploymentUuid** | **string** |  |  |
+| **applicationUuid** | **string** |  |  |
 | **filter** | [**List&lt;string&gt;**](string.md) |  | [optional]  |
 
 ### Return type
@@ -2197,7 +2197,7 @@ catch (ApiException e)
 
 <a id="getinstance"></a>
 # **GetInstance**
-> ApplicationInstanceResponse GetInstance (string instanceUuid, string applicationUuid, string deploymentUuid)
+> ApplicationInstanceResponse GetInstance (string deploymentUuid, string instanceUuid, string applicationUuid)
 
 
 
@@ -2223,13 +2223,13 @@ namespace Example
             config.AccessToken = "YOUR_BEARER_TOKEN";
 
             var apiInstance = new FenrirApi(config);
+            var deploymentUuid = "deploymentUuid_example";  // string | 
             var instanceUuid = "instanceUuid_example";  // string | 
             var applicationUuid = "applicationUuid_example";  // string | 
-            var deploymentUuid = "deploymentUuid_example";  // string | 
 
             try
             {
-                ApplicationInstanceResponse result = apiInstance.GetInstance(instanceUuid, applicationUuid, deploymentUuid);
+                ApplicationInstanceResponse result = apiInstance.GetInstance(deploymentUuid, instanceUuid, applicationUuid);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -2249,7 +2249,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    ApiResponse<ApplicationInstanceResponse> response = apiInstance.GetInstanceWithHttpInfo(instanceUuid, applicationUuid, deploymentUuid);
+    ApiResponse<ApplicationInstanceResponse> response = apiInstance.GetInstanceWithHttpInfo(deploymentUuid, instanceUuid, applicationUuid);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -2266,9 +2266,9 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
+| **deploymentUuid** | **string** |  |  |
 | **instanceUuid** | **string** |  |  |
 | **applicationUuid** | **string** |  |  |
-| **deploymentUuid** | **string** |  |  |
 
 ### Return type
 
@@ -2294,7 +2294,7 @@ catch (ApiException e)
 
 <a id="getinstancelogs"></a>
 # **GetInstanceLogs**
-> InstanceLogs GetInstanceLogs (string instanceUuid, string applicationUuid, string deploymentUuid)
+> InstanceLogs GetInstanceLogs (string deploymentUuid, string instanceUuid, string applicationUuid)
 
 
 
@@ -2320,13 +2320,13 @@ namespace Example
             config.AccessToken = "YOUR_BEARER_TOKEN";
 
             var apiInstance = new FenrirApi(config);
+            var deploymentUuid = "deploymentUuid_example";  // string | 
             var instanceUuid = "instanceUuid_example";  // string | 
             var applicationUuid = "applicationUuid_example";  // string | 
-            var deploymentUuid = "deploymentUuid_example";  // string | 
 
             try
             {
-                InstanceLogs result = apiInstance.GetInstanceLogs(instanceUuid, applicationUuid, deploymentUuid);
+                InstanceLogs result = apiInstance.GetInstanceLogs(deploymentUuid, instanceUuid, applicationUuid);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -2346,7 +2346,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    ApiResponse<InstanceLogs> response = apiInstance.GetInstanceLogsWithHttpInfo(instanceUuid, applicationUuid, deploymentUuid);
+    ApiResponse<InstanceLogs> response = apiInstance.GetInstanceLogsWithHttpInfo(deploymentUuid, instanceUuid, applicationUuid);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -2363,9 +2363,9 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
+| **deploymentUuid** | **string** |  |  |
 | **instanceUuid** | **string** |  |  |
 | **applicationUuid** | **string** |  |  |
-| **deploymentUuid** | **string** |  |  |
 
 ### Return type
 
@@ -2391,7 +2391,7 @@ catch (ApiException e)
 
 <a id="getinstancelogspreview"></a>
 # **GetInstanceLogsPreview**
-> InstanceLogsPreview GetInstanceLogsPreview (string instanceUuid, string applicationUuid, string deploymentUuid)
+> InstanceLogsPreview GetInstanceLogsPreview (string deploymentUuid, string instanceUuid, string applicationUuid)
 
 
 
@@ -2417,13 +2417,13 @@ namespace Example
             config.AccessToken = "YOUR_BEARER_TOKEN";
 
             var apiInstance = new FenrirApi(config);
+            var deploymentUuid = "deploymentUuid_example";  // string | 
             var instanceUuid = "instanceUuid_example";  // string | 
             var applicationUuid = "applicationUuid_example";  // string | 
-            var deploymentUuid = "deploymentUuid_example";  // string | 
 
             try
             {
-                InstanceLogsPreview result = apiInstance.GetInstanceLogsPreview(instanceUuid, applicationUuid, deploymentUuid);
+                InstanceLogsPreview result = apiInstance.GetInstanceLogsPreview(deploymentUuid, instanceUuid, applicationUuid);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -2443,7 +2443,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    ApiResponse<InstanceLogsPreview> response = apiInstance.GetInstanceLogsPreviewWithHttpInfo(instanceUuid, applicationUuid, deploymentUuid);
+    ApiResponse<InstanceLogsPreview> response = apiInstance.GetInstanceLogsPreviewWithHttpInfo(deploymentUuid, instanceUuid, applicationUuid);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -2460,9 +2460,9 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
+| **deploymentUuid** | **string** |  |  |
 | **instanceUuid** | **string** |  |  |
 | **applicationUuid** | **string** |  |  |
-| **deploymentUuid** | **string** |  |  |
 
 ### Return type
 
@@ -2488,7 +2488,7 @@ catch (ApiException e)
 
 <a id="getinstances"></a>
 # **GetInstances**
-> ApplicationInstanceListResponse GetInstances (string applicationUuid, string deploymentUuid)
+> ApplicationInstanceListResponse GetInstances (string deploymentUuid, string applicationUuid)
 
 
 
@@ -2514,12 +2514,12 @@ namespace Example
             config.AccessToken = "YOUR_BEARER_TOKEN";
 
             var apiInstance = new FenrirApi(config);
-            var applicationUuid = "applicationUuid_example";  // string | 
             var deploymentUuid = "deploymentUuid_example";  // string | 
+            var applicationUuid = "applicationUuid_example";  // string | 
 
             try
             {
-                ApplicationInstanceListResponse result = apiInstance.GetInstances(applicationUuid, deploymentUuid);
+                ApplicationInstanceListResponse result = apiInstance.GetInstances(deploymentUuid, applicationUuid);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -2539,7 +2539,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    ApiResponse<ApplicationInstanceListResponse> response = apiInstance.GetInstancesWithHttpInfo(applicationUuid, deploymentUuid);
+    ApiResponse<ApplicationInstanceListResponse> response = apiInstance.GetInstancesWithHttpInfo(deploymentUuid, applicationUuid);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -2556,8 +2556,8 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **applicationUuid** | **string** |  |  |
 | **deploymentUuid** | **string** |  |  |
+| **applicationUuid** | **string** |  |  |
 
 ### Return type
 

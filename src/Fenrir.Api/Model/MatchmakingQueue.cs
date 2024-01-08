@@ -57,6 +57,22 @@ namespace Fenrir.Api.Model
         }
 
         /// <summary>
+        /// A uuid of the application this queue is for.
+        /// </summary>
+        /// <value>A uuid of the application this queue is for.</value>
+        /// <example>ac9fc73a152e4e10b87a1ad8a87f02cb</example>
+        [DataMember(Name = "application_uuid", EmitDefaultValue = false)]
+        public string ApplicationUuid { get; private set; }
+
+        /// <summary>
+        /// Returns false as ApplicationUuid should not be serialized given that it's read-only.
+        /// </summary>
+        /// <returns>false (boolean)</returns>
+        public bool ShouldSerializeApplicationUuid()
+        {
+            return false;
+        }
+        /// <summary>
         /// Gets or Sets VarConfiguration
         /// </summary>
         [DataMember(Name = "configuration", IsRequired = true, EmitDefaultValue = true)]
@@ -126,6 +142,7 @@ namespace Fenrir.Api.Model
         {
             StringBuilder sb = new StringBuilder();
             sb.Append("class MatchmakingQueue {\n");
+            sb.Append("  ApplicationUuid: ").Append(ApplicationUuid).Append("\n");
             sb.Append("  VarConfiguration: ").Append(VarConfiguration).Append("\n");
             sb.Append("  Created: ").Append(Created).Append("\n");
             sb.Append("  Name: ").Append(Name).Append("\n");

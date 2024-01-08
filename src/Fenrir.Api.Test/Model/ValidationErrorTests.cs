@@ -54,12 +54,12 @@ namespace Fenrir.Api.Test.Model
         }
 
         /// <summary>
-        /// Test the property 'Errors'
+        /// Test the property 'Error'
         /// </summary>
         [Fact]
-        public void ErrorsTest()
+        public void ErrorTest()
         {
-            // TODO unit test for the property 'Errors'
+            // TODO unit test for the property 'Error'
         }
 
         /// <summary>

@@ -33,27 +33,27 @@ namespace Fenrir.Api.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ValidationError" /> class.
         /// </summary>
-        /// <param name="errors">A list of errors..</param>
+        /// <param name="error">A detailed description of an error..</param>
         /// <param name="field">A field which has validation errors..</param>
-        public ValidationError(List<string> errors = default(List<string>), string field = default(string))
+        public ValidationError(string error = default(string), string field = default(string))
         {
-            this.Errors = errors;
+            this.Error = error;
             this.Field = field;
         }
 
         /// <summary>
-        /// A list of errors.
+        /// A detailed description of an error.
         /// </summary>
-        /// <value>A list of errors.</value>
-        /// <example>[&quot;must not contain whitespaces.&quot;,&quot;must be between 4 and 128 characters long&quot;]</example>
-        [DataMember(Name = "errors", EmitDefaultValue = false)]
-        public List<string> Errors { get; set; }
+        /// <value>A detailed description of an error.</value>
+        /// <example>must not contain whitespaces.</example>
+        [DataMember(Name = "error", EmitDefaultValue = false)]
+        public string Error { get; set; }
 
         /// <summary>
         /// A field which has validation errors.
         /// </summary>
         /// <value>A field which has validation errors.</value>
-        /// <example>name</example>
+        /// <example>configuration.name</example>
         [DataMember(Name = "field", EmitDefaultValue = false)]
         public string Field { get; set; }
 
@@ -65,7 +65,7 @@ namespace Fenrir.Api.Model
         {
             StringBuilder sb = new StringBuilder();
             sb.Append("class ValidationError {\n");
-            sb.Append("  Errors: ").Append(Errors).Append("\n");
+            sb.Append("  Error: ").Append(Error).Append("\n");
             sb.Append("  Field: ").Append(Field).Append("\n");
             sb.Append("}\n");
             return sb.ToString();

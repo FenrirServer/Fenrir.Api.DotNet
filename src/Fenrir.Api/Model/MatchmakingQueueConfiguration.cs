@@ -68,7 +68,7 @@ namespace Fenrir.Api.Model
         /// <param name="teamRules">An array of team rules..</param>
         /// <param name="teams">An array of teams..</param>
         /// <param name="varVersion">A configuration schema version. (required).</param>
-        public MatchmakingQueueConfiguration(bool confirmationRequired = default(bool), decimal confirmationTimeSeconds = default(decimal), string deploymentUuid = default(string), List<MatchmakingQueueConfigurationPlayerProperty> playerProperties = default(List<MatchmakingQueueConfigurationPlayerProperty>), List<MatchmakingQueueConfigurationPlayerRule> playerRules = default(List<MatchmakingQueueConfigurationPlayerRule>), List<MatchmakingQueueConfigurationTeamRule> teamRules = default(List<MatchmakingQueueConfigurationTeamRule>), List<MatchmakingQueueConfigurationTeam> teams = default(List<MatchmakingQueueConfigurationTeam>), VarVersionEnum varVersion = default(VarVersionEnum))
+        public MatchmakingQueueConfiguration(bool confirmationRequired = default(bool), decimal? confirmationTimeSeconds = default(decimal?), string deploymentUuid = default(string), List<MatchmakingQueueConfigurationPlayerProperty> playerProperties = default(List<MatchmakingQueueConfigurationPlayerProperty>), List<MatchmakingQueueConfigurationPlayerRule> playerRules = default(List<MatchmakingQueueConfigurationPlayerRule>), List<MatchmakingQueueConfigurationTeamRule> teamRules = default(List<MatchmakingQueueConfigurationTeamRule>), List<MatchmakingQueueConfigurationTeam> teams = default(List<MatchmakingQueueConfigurationTeam>), VarVersionEnum varVersion = default(VarVersionEnum))
         {
             // to ensure "deploymentUuid" is required (not null)
             if (deploymentUuid == null)
@@ -98,8 +98,8 @@ namespace Fenrir.Api.Model
         /// </summary>
         /// <value>A number of seconds given to players to confirm their match participation.</value>
         /// <example>10</example>
-        [DataMember(Name = "confirmation_time_seconds", EmitDefaultValue = false)]
-        public decimal ConfirmationTimeSeconds { get; set; }
+        [DataMember(Name = "confirmation_time_seconds", EmitDefaultValue = true)]
+        public decimal? ConfirmationTimeSeconds { get; set; }
 
         /// <summary>
         /// Time when the configuration was created.
