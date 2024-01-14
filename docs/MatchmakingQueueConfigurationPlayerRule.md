@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**DifferenceValue** | **decimal** | A value difference. Must be specified if player rule checks difference between values. | [optional] 
+**DifferenceValue** | **decimal?** | A value difference. Must be specified if player rule checks difference between values. | [optional] 
 **PropertyKey** | **string** | Player property key. Must be specified if a rule is applied to player properties. | 
 **Type** | **string** | Player rule type. | 
 

@@ -100,7 +100,7 @@ namespace Fenrir.Api.Model
         /// </summary>
         /// <value>A default value for a property. If \&quot;required\&quot; is set to false, this default value will be used for tickets that did not specify this property.</value>
         /// <example>100</example>
-        [DataMember(Name = "default_value", EmitDefaultValue = false)]
+        [DataMember(Name = "default_value", EmitDefaultValue = true)]
         public string DefaultValue { get; set; }
 
         /// <summary>
@@ -158,9 +158,9 @@ namespace Fenrir.Api.Model
             }
 
             // DefaultValue (string) minLength
-            if (this.DefaultValue != null && this.DefaultValue.Length < 4)
+            if (this.DefaultValue != null && this.DefaultValue.Length < 0)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for DefaultValue, length must be greater than 4.", new [] { "DefaultValue" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for DefaultValue, length must be greater than 0.", new [] { "DefaultValue" });
             }
 
             // Key (string) maxLength

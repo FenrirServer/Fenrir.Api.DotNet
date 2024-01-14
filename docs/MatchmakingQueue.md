@@ -4,6 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**ApplicationUuid** | **string** | A uuid of the application this queue is for. | [optional] [readonly] 
 **VarConfiguration** | [**MatchmakingQueueConfiguration**](MatchmakingQueueConfiguration.md) |  | 
 **Created** | **DateTime** | Time when the matchmaking queue was created. | [optional] [readonly] 
 **Name** | **string** | A name of the matchmaking queue. | 

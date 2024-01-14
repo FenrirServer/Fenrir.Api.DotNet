@@ -20,11 +20,10 @@ info:
     \ issue, a *4XX* status code will be returned. \nA body will contain a JSON object\
     \ with the details of the message.\n\nInside a JSON object, an error message will\
     \ be included. \n\nFor 400 Bad Request errors caused by validation issues, additional\
-    \ `errors` key will be set.\nThat key will contain detailed information about\
-    \ each validation error.\n\n### Example Error Response\n\n```json\n{\n  \"message\"\
-    : \"Invalid Request\",\n  \"errors\": [\n    {\n      \"field\": \"name\",\n \
-    \     \"errors\": [\"must not contain special characters\", \"must not be longer\
-    \ than 128 character\"]\n    },\n    ...\n  ]\n}\n```\n\n"
+    \ `errors` key will be set.\nThat key will contain a list of \n\n### Example Error\
+    \ Response\n\n```json\n{\n  \"message\": \"Invalid Request\",\n  \"errors\": [\n\
+    \    {\n      \"field\": \"configuration.name\",\n      \"error\": \"must not\
+    \ contain special characters\"]\n    },\n    ...\n  ]\n}\n```\n\n"
   title: Fenrir Api
   version: v1
 servers:
@@ -440,14 +439,14 @@ paths:
       parameters:
       - explode: false
         in: path
-        name: application_uuid
+        name: deployment_uuid
         required: true
         schema:
           type: string
         style: simple
       - explode: false
         in: path
-        name: deployment_uuid
+        name: application_uuid
         required: true
         schema:
           type: string
@@ -473,14 +472,14 @@ paths:
       parameters:
       - explode: false
         in: path
-        name: application_uuid
+        name: deployment_uuid
         required: true
         schema:
           type: string
         style: simple
       - explode: false
         in: path
-        name: deployment_uuid
+        name: application_uuid
         required: true
         schema:
           type: string
@@ -507,14 +506,14 @@ paths:
       parameters:
       - explode: false
         in: path
-        name: application_uuid
+        name: deployment_uuid
         required: true
         schema:
           type: string
         style: simple
       - explode: false
         in: path
-        name: deployment_uuid
+        name: application_uuid
         required: true
         schema:
           type: string
@@ -541,6 +540,13 @@ paths:
       parameters:
       - explode: false
         in: path
+        name: deployment_uuid
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: false
+        in: path
         name: instance_uuid
         required: true
         schema:
@@ -549,13 +555,6 @@ paths:
       - explode: false
         in: path
         name: application_uuid
-        required: true
-        schema:
-          type: string
-        style: simple
-      - explode: false
-        in: path
-        name: deployment_uuid
         required: true
         schema:
           type: string
@@ -582,6 +581,13 @@ paths:
       parameters:
       - explode: false
         in: path
+        name: deployment_uuid
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: false
+        in: path
         name: instance_uuid
         required: true
         schema:
@@ -590,13 +596,6 @@ paths:
       - explode: false
         in: path
         name: application_uuid
-        required: true
-        schema:
-          type: string
-        style: simple
-      - explode: false
-        in: path
-        name: deployment_uuid
         required: true
         schema:
           type: string
@@ -623,6 +622,13 @@ paths:
       parameters:
       - explode: false
         in: path
+        name: deployment_uuid
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: false
+        in: path
         name: instance_uuid
         required: true
         schema:
@@ -631,13 +637,6 @@ paths:
       - explode: false
         in: path
         name: application_uuid
-        required: true
-        schema:
-          type: string
-        style: simple
-      - explode: false
-        in: path
-        name: deployment_uuid
         required: true
         schema:
           type: string
@@ -673,14 +672,14 @@ paths:
         style: form
       - explode: false
         in: path
-        name: application_uuid
+        name: deployment_uuid
         required: true
         schema:
           type: string
         style: simple
       - explode: false
         in: path
-        name: deployment_uuid
+        name: application_uuid
         required: true
         schema:
           type: string
@@ -1757,11 +1756,17 @@ components:
     MatchmakingQueue:
       example:
         configuration: ""
+        application_uuid: ac9fc73a152e4e10b87a1ad8a87f02cb
         created: 2024-01-22T19:28:42Z
         name: my-queue
         updated: 2024-01-22T19:28:42Z
         uuid: 146f44647dd941a89dbe8d487b7aa1ca
       properties:
+        application_uuid:
+          description: A uuid of the application this queue is for.
+          example: ac9fc73a152e4e10b87a1ad8a87f02cb
+          readOnly: true
+          type: string
         configuration:
           allOf:
           - $ref: '#/components/schemas/MatchmakingQueueConfiguration'
@@ -1845,6 +1850,7 @@ components:
           description: A number of seconds given to players to confirm their match
             participation.
           example: 10
+          nullable: true
           type: number
         created:
           description: Time when the configuration was created.
@@ -1988,7 +1994,8 @@ components:
             \ this property."
           example: "100"
           maxLength: 128
-          minLength: 4
+          minLength: 0
+          nullable: true
           type: string
         key:
           description: A unique key of the property.
@@ -2026,6 +2033,7 @@ components:
           description: A value difference. Must be specified if player rule checks
             difference between values.
           example: 20
+          nullable: true
           type: number
         property_key:
           description: Player property key. Must be specified if a rule is applied
@@ -2114,11 +2122,13 @@ components:
       example:
         queues:
         - configuration: ""
+          application_uuid: ac9fc73a152e4e10b87a1ad8a87f02cb
           created: 2024-01-22T19:28:42Z
           name: my-queue
           updated: 2024-01-22T19:28:42Z
           uuid: 146f44647dd941a89dbe8d487b7aa1ca
         - configuration: ""
+          application_uuid: ac9fc73a152e4e10b87a1ad8a87f02cb
           created: 2024-01-22T19:28:42Z
           name: my-queue
           updated: 2024-01-22T19:28:42Z
@@ -2179,17 +2189,13 @@ components:
       type: object
     ValidationError:
       properties:
-        errors:
-          description: A list of errors.
-          example:
-          - must not contain whitespaces.
-          - must be between 4 and 128 characters long
-          items:
-            type: string
-          type: array
+        error:
+          description: A detailed description of an error.
+          example: must not contain whitespaces.
+          type: string
         field:
           description: A field which has validation errors.
-          example: name
+          example: configuration.name
           type: string
       type: object
   securitySchemes:

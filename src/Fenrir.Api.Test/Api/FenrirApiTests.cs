@@ -161,9 +161,9 @@ namespace Fenrir.Api.Test.Api
         public void DeleteDeploymentTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
-            //string applicationUuid = null;
             //string deploymentUuid = null;
-            //var response = instance.DeleteDeployment(applicationUuid, deploymentUuid);
+            //string applicationUuid = null;
+            //var response = instance.DeleteDeployment(deploymentUuid, applicationUuid);
             //Assert.IsType<Response>(response);
         }
 
@@ -296,9 +296,9 @@ namespace Fenrir.Api.Test.Api
         public void GetDeploymentTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
-            //string applicationUuid = null;
             //string deploymentUuid = null;
-            //var response = instance.GetDeployment(applicationUuid, deploymentUuid);
+            //string applicationUuid = null;
+            //var response = instance.GetDeployment(deploymentUuid, applicationUuid);
             //Assert.IsType<DeploymentResponse>(response);
         }
 
@@ -309,10 +309,10 @@ namespace Fenrir.Api.Test.Api
         public void GetDeploymentStatsTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
-            //string applicationUuid = null;
             //string deploymentUuid = null;
+            //string applicationUuid = null;
             //List<string> filter = null;
-            //var response = instance.GetDeploymentStats(applicationUuid, deploymentUuid, filter);
+            //var response = instance.GetDeploymentStats(deploymentUuid, applicationUuid, filter);
             //Assert.IsType<DeploymentStatsResponse>(response);
         }
 
@@ -347,10 +347,10 @@ namespace Fenrir.Api.Test.Api
         public void GetInstanceTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
+            //string deploymentUuid = null;
             //string instanceUuid = null;
             //string applicationUuid = null;
-            //string deploymentUuid = null;
-            //var response = instance.GetInstance(instanceUuid, applicationUuid, deploymentUuid);
+            //var response = instance.GetInstance(deploymentUuid, instanceUuid, applicationUuid);
             //Assert.IsType<ApplicationInstanceResponse>(response);
         }
 
@@ -361,10 +361,10 @@ namespace Fenrir.Api.Test.Api
         public void GetInstanceLogsTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
+            //string deploymentUuid = null;
             //string instanceUuid = null;
             //string applicationUuid = null;
-            //string deploymentUuid = null;
-            //var response = instance.GetInstanceLogs(instanceUuid, applicationUuid, deploymentUuid);
+            //var response = instance.GetInstanceLogs(deploymentUuid, instanceUuid, applicationUuid);
             //Assert.IsType<InstanceLogs>(response);
         }
 
@@ -375,10 +375,10 @@ namespace Fenrir.Api.Test.Api
         public void GetInstanceLogsPreviewTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
+            //string deploymentUuid = null;
             //string instanceUuid = null;
             //string applicationUuid = null;
-            //string deploymentUuid = null;
-            //var response = instance.GetInstanceLogsPreview(instanceUuid, applicationUuid, deploymentUuid);
+            //var response = instance.GetInstanceLogsPreview(deploymentUuid, instanceUuid, applicationUuid);
             //Assert.IsType<InstanceLogsPreview>(response);
         }
 
@@ -389,9 +389,9 @@ namespace Fenrir.Api.Test.Api
         public void GetInstancesTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
-            //string applicationUuid = null;
             //string deploymentUuid = null;
-            //var response = instance.GetInstances(applicationUuid, deploymentUuid);
+            //string applicationUuid = null;
+            //var response = instance.GetInstances(deploymentUuid, applicationUuid);
             //Assert.IsType<ApplicationInstanceListResponse>(response);
         }
 

@@ -69,7 +69,7 @@ namespace Fenrir.Api.Model
         /// <param name="differenceValue">A value difference. Must be specified if player rule checks difference between values..</param>
         /// <param name="propertyKey">Player property key. Must be specified if a rule is applied to player properties. (required).</param>
         /// <param name="type">Player rule type. (required).</param>
-        public MatchmakingQueueConfigurationPlayerRule(decimal differenceValue = default(decimal), string propertyKey = default(string), TypeEnum type = default(TypeEnum))
+        public MatchmakingQueueConfigurationPlayerRule(decimal? differenceValue = default(decimal?), string propertyKey = default(string), TypeEnum type = default(TypeEnum))
         {
             // to ensure "propertyKey" is required (not null)
             if (propertyKey == null)
@@ -86,8 +86,8 @@ namespace Fenrir.Api.Model
         /// </summary>
         /// <value>A value difference. Must be specified if player rule checks difference between values.</value>
         /// <example>20</example>
-        [DataMember(Name = "difference_value", EmitDefaultValue = false)]
-        public decimal DifferenceValue { get; set; }
+        [DataMember(Name = "difference_value", EmitDefaultValue = true)]
+        public decimal? DifferenceValue { get; set; }
 
         /// <summary>
         /// Player property key. Must be specified if a rule is applied to player properties.

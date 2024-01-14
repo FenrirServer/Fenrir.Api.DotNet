@@ -54,6 +54,15 @@ namespace Fenrir.Api.Test.Model
         }
 
         /// <summary>
+        /// Test the property 'ApplicationUuid'
+        /// </summary>
+        [Fact]
+        public void ApplicationUuidTest()
+        {
+            // TODO unit test for the property 'ApplicationUuid'
+        }
+
+        /// <summary>
         /// Test the property 'VarConfiguration'
         /// </summary>
         [Fact]

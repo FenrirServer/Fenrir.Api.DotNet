@@ -226,11 +226,11 @@ namespace Fenrir.Api.Api
         /// Deletes an application deployment.
         /// </remarks>
         /// <exception cref="Fenrir.Api.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="applicationUuid"></param>
         /// <param name="deploymentUuid"></param>
+        /// <param name="applicationUuid"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>Response</returns>
-        Response DeleteDeployment(string applicationUuid, string deploymentUuid, int operationIndex = 0);
+        Response DeleteDeployment(string deploymentUuid, string applicationUuid, int operationIndex = 0);
 
         /// <summary>
         /// 
@@ -239,11 +239,11 @@ namespace Fenrir.Api.Api
         /// Deletes an application deployment.
         /// </remarks>
         /// <exception cref="Fenrir.Api.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="applicationUuid"></param>
         /// <param name="deploymentUuid"></param>
+        /// <param name="applicationUuid"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of Response</returns>
-        ApiResponse<Response> DeleteDeploymentWithHttpInfo(string applicationUuid, string deploymentUuid, int operationIndex = 0);
+        ApiResponse<Response> DeleteDeploymentWithHttpInfo(string deploymentUuid, string applicationUuid, int operationIndex = 0);
         /// <summary>
         /// 
         /// </summary>
@@ -485,11 +485,11 @@ namespace Fenrir.Api.Api
         /// Retrieves an application deployment.
         /// </remarks>
         /// <exception cref="Fenrir.Api.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="applicationUuid"></param>
         /// <param name="deploymentUuid"></param>
+        /// <param name="applicationUuid"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>DeploymentResponse</returns>
-        DeploymentResponse GetDeployment(string applicationUuid, string deploymentUuid, int operationIndex = 0);
+        DeploymentResponse GetDeployment(string deploymentUuid, string applicationUuid, int operationIndex = 0);
 
         /// <summary>
         /// 
@@ -498,11 +498,11 @@ namespace Fenrir.Api.Api
         /// Retrieves an application deployment.
         /// </remarks>
         /// <exception cref="Fenrir.Api.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="applicationUuid"></param>
         /// <param name="deploymentUuid"></param>
+        /// <param name="applicationUuid"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of DeploymentResponse</returns>
-        ApiResponse<DeploymentResponse> GetDeploymentWithHttpInfo(string applicationUuid, string deploymentUuid, int operationIndex = 0);
+        ApiResponse<DeploymentResponse> GetDeploymentWithHttpInfo(string deploymentUuid, string applicationUuid, int operationIndex = 0);
         /// <summary>
         /// 
         /// </summary>
@@ -510,12 +510,12 @@ namespace Fenrir.Api.Api
         /// Retrieves deployment stats.
         /// </remarks>
         /// <exception cref="Fenrir.Api.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="applicationUuid"></param>
         /// <param name="deploymentUuid"></param>
+        /// <param name="applicationUuid"></param>
         /// <param name="filter"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>DeploymentStatsResponse</returns>
-        DeploymentStatsResponse GetDeploymentStats(string applicationUuid, string deploymentUuid, List<string> filter = default(List<string>), int operationIndex = 0);
+        DeploymentStatsResponse GetDeploymentStats(string deploymentUuid, string applicationUuid, List<string> filter = default(List<string>), int operationIndex = 0);
 
         /// <summary>
         /// 
@@ -524,12 +524,12 @@ namespace Fenrir.Api.Api
         /// Retrieves deployment stats.
         /// </remarks>
         /// <exception cref="Fenrir.Api.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="applicationUuid"></param>
         /// <param name="deploymentUuid"></param>
+        /// <param name="applicationUuid"></param>
         /// <param name="filter"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of DeploymentStatsResponse</returns>
-        ApiResponse<DeploymentStatsResponse> GetDeploymentStatsWithHttpInfo(string applicationUuid, string deploymentUuid, List<string> filter = default(List<string>), int operationIndex = 0);
+        ApiResponse<DeploymentStatsResponse> GetDeploymentStatsWithHttpInfo(string deploymentUuid, string applicationUuid, List<string> filter = default(List<string>), int operationIndex = 0);
         /// <summary>
         /// 
         /// </summary>
@@ -583,12 +583,12 @@ namespace Fenrir.Api.Api
         /// Retrieves an application instance.
         /// </remarks>
         /// <exception cref="Fenrir.Api.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="deploymentUuid"></param>
         /// <param name="instanceUuid"></param>
         /// <param name="applicationUuid"></param>
-        /// <param name="deploymentUuid"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApplicationInstanceResponse</returns>
-        ApplicationInstanceResponse GetInstance(string instanceUuid, string applicationUuid, string deploymentUuid, int operationIndex = 0);
+        ApplicationInstanceResponse GetInstance(string deploymentUuid, string instanceUuid, string applicationUuid, int operationIndex = 0);
 
         /// <summary>
         /// 
@@ -597,12 +597,12 @@ namespace Fenrir.Api.Api
         /// Retrieves an application instance.
         /// </remarks>
         /// <exception cref="Fenrir.Api.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="deploymentUuid"></param>
         /// <param name="instanceUuid"></param>
         /// <param name="applicationUuid"></param>
-        /// <param name="deploymentUuid"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of ApplicationInstanceResponse</returns>
-        ApiResponse<ApplicationInstanceResponse> GetInstanceWithHttpInfo(string instanceUuid, string applicationUuid, string deploymentUuid, int operationIndex = 0);
+        ApiResponse<ApplicationInstanceResponse> GetInstanceWithHttpInfo(string deploymentUuid, string instanceUuid, string applicationUuid, int operationIndex = 0);
         /// <summary>
         /// 
         /// </summary>
@@ -610,12 +610,12 @@ namespace Fenrir.Api.Api
         /// Retrieves application instance logs.
         /// </remarks>
         /// <exception cref="Fenrir.Api.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="deploymentUuid"></param>
         /// <param name="instanceUuid"></param>
         /// <param name="applicationUuid"></param>
-        /// <param name="deploymentUuid"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>InstanceLogs</returns>
-        InstanceLogs GetInstanceLogs(string instanceUuid, string applicationUuid, string deploymentUuid, int operationIndex = 0);
+        InstanceLogs GetInstanceLogs(string deploymentUuid, string instanceUuid, string applicationUuid, int operationIndex = 0);
 
         /// <summary>
         /// 
@@ -624,12 +624,12 @@ namespace Fenrir.Api.Api
         /// Retrieves application instance logs.
         /// </remarks>
         /// <exception cref="Fenrir.Api.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="deploymentUuid"></param>
         /// <param name="instanceUuid"></param>
         /// <param name="applicationUuid"></param>
-        /// <param name="deploymentUuid"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of InstanceLogs</returns>
-        ApiResponse<InstanceLogs> GetInstanceLogsWithHttpInfo(string instanceUuid, string applicationUuid, string deploymentUuid, int operationIndex = 0);
+        ApiResponse<InstanceLogs> GetInstanceLogsWithHttpInfo(string deploymentUuid, string instanceUuid, string applicationUuid, int operationIndex = 0);
         /// <summary>
         /// 
         /// </summary>
@@ -637,12 +637,12 @@ namespace Fenrir.Api.Api
         /// Retrieves a small number of most recent application instance logs.
         /// </remarks>
         /// <exception cref="Fenrir.Api.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="deploymentUuid"></param>
         /// <param name="instanceUuid"></param>
         /// <param name="applicationUuid"></param>
-        /// <param name="deploymentUuid"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>InstanceLogsPreview</returns>
-        InstanceLogsPreview GetInstanceLogsPreview(string instanceUuid, string applicationUuid, string deploymentUuid, int operationIndex = 0);
+        InstanceLogsPreview GetInstanceLogsPreview(string deploymentUuid, string instanceUuid, string applicationUuid, int operationIndex = 0);
 
         /// <summary>
         /// 
@@ -651,12 +651,12 @@ namespace Fenrir.Api.Api
         /// Retrieves a small number of most recent application instance logs.
         /// </remarks>
         /// <exception cref="Fenrir.Api.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="deploymentUuid"></param>
         /// <param name="instanceUuid"></param>
         /// <param name="applicationUuid"></param>
-        /// <param name="deploymentUuid"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of InstanceLogsPreview</returns>
-        ApiResponse<InstanceLogsPreview> GetInstanceLogsPreviewWithHttpInfo(string instanceUuid, string applicationUuid, string deploymentUuid, int operationIndex = 0);
+        ApiResponse<InstanceLogsPreview> GetInstanceLogsPreviewWithHttpInfo(string deploymentUuid, string instanceUuid, string applicationUuid, int operationIndex = 0);
         /// <summary>
         /// 
         /// </summary>
@@ -664,11 +664,11 @@ namespace Fenrir.Api.Api
         /// Lists all application instances for a given deployment.
         /// </remarks>
         /// <exception cref="Fenrir.Api.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="applicationUuid"></param>
         /// <param name="deploymentUuid"></param>
+        /// <param name="applicationUuid"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApplicationInstanceListResponse</returns>
-        ApplicationInstanceListResponse GetInstances(string applicationUuid, string deploymentUuid, int operationIndex = 0);
+        ApplicationInstanceListResponse GetInstances(string deploymentUuid, string applicationUuid, int operationIndex = 0);
 
         /// <summary>
         /// 
@@ -677,11 +677,11 @@ namespace Fenrir.Api.Api
         /// Lists all application instances for a given deployment.
         /// </remarks>
         /// <exception cref="Fenrir.Api.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="applicationUuid"></param>
         /// <param name="deploymentUuid"></param>
+        /// <param name="applicationUuid"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of ApplicationInstanceListResponse</returns>
-        ApiResponse<ApplicationInstanceListResponse> GetInstancesWithHttpInfo(string applicationUuid, string deploymentUuid, int operationIndex = 0);
+        ApiResponse<ApplicationInstanceListResponse> GetInstancesWithHttpInfo(string deploymentUuid, string applicationUuid, int operationIndex = 0);
         /// <summary>
         /// 
         /// </summary>
@@ -1060,12 +1060,12 @@ namespace Fenrir.Api.Api
         /// Deletes an application deployment.
         /// </remarks>
         /// <exception cref="Fenrir.Api.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="applicationUuid"></param>
         /// <param name="deploymentUuid"></param>
+        /// <param name="applicationUuid"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Response</returns>
-        System.Threading.Tasks.Task<Response> DeleteDeploymentAsync(string applicationUuid, string deploymentUuid, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<Response> DeleteDeploymentAsync(string deploymentUuid, string applicationUuid, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// 
@@ -1074,12 +1074,12 @@ namespace Fenrir.Api.Api
         /// Deletes an application deployment.
         /// </remarks>
         /// <exception cref="Fenrir.Api.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="applicationUuid"></param>
         /// <param name="deploymentUuid"></param>
+        /// <param name="applicationUuid"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Response)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Response>> DeleteDeploymentWithHttpInfoAsync(string applicationUuid, string deploymentUuid, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<Response>> DeleteDeploymentWithHttpInfoAsync(string deploymentUuid, string applicationUuid, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// 
         /// </summary>
@@ -1341,12 +1341,12 @@ namespace Fenrir.Api.Api
         /// Retrieves an application deployment.
         /// </remarks>
         /// <exception cref="Fenrir.Api.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="applicationUuid"></param>
         /// <param name="deploymentUuid"></param>
+        /// <param name="applicationUuid"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of DeploymentResponse</returns>
-        System.Threading.Tasks.Task<DeploymentResponse> GetDeploymentAsync(string applicationUuid, string deploymentUuid, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<DeploymentResponse> GetDeploymentAsync(string deploymentUuid, string applicationUuid, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// 
@@ -1355,12 +1355,12 @@ namespace Fenrir.Api.Api
         /// Retrieves an application deployment.
         /// </remarks>
         /// <exception cref="Fenrir.Api.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="applicationUuid"></param>
         /// <param name="deploymentUuid"></param>
+        /// <param name="applicationUuid"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (DeploymentResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<DeploymentResponse>> GetDeploymentWithHttpInfoAsync(string applicationUuid, string deploymentUuid, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<DeploymentResponse>> GetDeploymentWithHttpInfoAsync(string deploymentUuid, string applicationUuid, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// 
         /// </summary>
@@ -1368,13 +1368,13 @@ namespace Fenrir.Api.Api
         /// Retrieves deployment stats.
         /// </remarks>
         /// <exception cref="Fenrir.Api.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="applicationUuid"></param>
         /// <param name="deploymentUuid"></param>
+        /// <param name="applicationUuid"></param>
         /// <param name="filter"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of DeploymentStatsResponse</returns>
-        System.Threading.Tasks.Task<DeploymentStatsResponse> GetDeploymentStatsAsync(string applicationUuid, string deploymentUuid, List<string> filter = default(List<string>), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<DeploymentStatsResponse> GetDeploymentStatsAsync(string deploymentUuid, string applicationUuid, List<string> filter = default(List<string>), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// 
@@ -1383,13 +1383,13 @@ namespace Fenrir.Api.Api
         /// Retrieves deployment stats.
         /// </remarks>
         /// <exception cref="Fenrir.Api.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="applicationUuid"></param>
         /// <param name="deploymentUuid"></param>
+        /// <param name="applicationUuid"></param>
         /// <param name="filter"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (DeploymentStatsResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<DeploymentStatsResponse>> GetDeploymentStatsWithHttpInfoAsync(string applicationUuid, string deploymentUuid, List<string> filter = default(List<string>), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<DeploymentStatsResponse>> GetDeploymentStatsWithHttpInfoAsync(string deploymentUuid, string applicationUuid, List<string> filter = default(List<string>), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// 
         /// </summary>
@@ -1447,13 +1447,13 @@ namespace Fenrir.Api.Api
         /// Retrieves an application instance.
         /// </remarks>
         /// <exception cref="Fenrir.Api.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="deploymentUuid"></param>
         /// <param name="instanceUuid"></param>
         /// <param name="applicationUuid"></param>
-        /// <param name="deploymentUuid"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApplicationInstanceResponse</returns>
-        System.Threading.Tasks.Task<ApplicationInstanceResponse> GetInstanceAsync(string instanceUuid, string applicationUuid, string deploymentUuid, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApplicationInstanceResponse> GetInstanceAsync(string deploymentUuid, string instanceUuid, string applicationUuid, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// 
@@ -1462,13 +1462,13 @@ namespace Fenrir.Api.Api
         /// Retrieves an application instance.
         /// </remarks>
         /// <exception cref="Fenrir.Api.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="deploymentUuid"></param>
         /// <param name="instanceUuid"></param>
         /// <param name="applicationUuid"></param>
-        /// <param name="deploymentUuid"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ApplicationInstanceResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ApplicationInstanceResponse>> GetInstanceWithHttpInfoAsync(string instanceUuid, string applicationUuid, string deploymentUuid, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<ApplicationInstanceResponse>> GetInstanceWithHttpInfoAsync(string deploymentUuid, string instanceUuid, string applicationUuid, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// 
         /// </summary>
@@ -1476,13 +1476,13 @@ namespace Fenrir.Api.Api
         /// Retrieves application instance logs.
         /// </remarks>
         /// <exception cref="Fenrir.Api.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="deploymentUuid"></param>
         /// <param name="instanceUuid"></param>
         /// <param name="applicationUuid"></param>
-        /// <param name="deploymentUuid"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of InstanceLogs</returns>
-        System.Threading.Tasks.Task<InstanceLogs> GetInstanceLogsAsync(string instanceUuid, string applicationUuid, string deploymentUuid, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<InstanceLogs> GetInstanceLogsAsync(string deploymentUuid, string instanceUuid, string applicationUuid, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// 
@@ -1491,13 +1491,13 @@ namespace Fenrir.Api.Api
         /// Retrieves application instance logs.
         /// </remarks>
         /// <exception cref="Fenrir.Api.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="deploymentUuid"></param>
         /// <param name="instanceUuid"></param>
         /// <param name="applicationUuid"></param>
-        /// <param name="deploymentUuid"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (InstanceLogs)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InstanceLogs>> GetInstanceLogsWithHttpInfoAsync(string instanceUuid, string applicationUuid, string deploymentUuid, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<InstanceLogs>> GetInstanceLogsWithHttpInfoAsync(string deploymentUuid, string instanceUuid, string applicationUuid, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// 
         /// </summary>
@@ -1505,13 +1505,13 @@ namespace Fenrir.Api.Api
         /// Retrieves a small number of most recent application instance logs.
         /// </remarks>
         /// <exception cref="Fenrir.Api.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="deploymentUuid"></param>
         /// <param name="instanceUuid"></param>
         /// <param name="applicationUuid"></param>
-        /// <param name="deploymentUuid"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of InstanceLogsPreview</returns>
-        System.Threading.Tasks.Task<InstanceLogsPreview> GetInstanceLogsPreviewAsync(string instanceUuid, string applicationUuid, string deploymentUuid, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<InstanceLogsPreview> GetInstanceLogsPreviewAsync(string deploymentUuid, string instanceUuid, string applicationUuid, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// 
@@ -1520,13 +1520,13 @@ namespace Fenrir.Api.Api
         /// Retrieves a small number of most recent application instance logs.
         /// </remarks>
         /// <exception cref="Fenrir.Api.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="deploymentUuid"></param>
         /// <param name="instanceUuid"></param>
         /// <param name="applicationUuid"></param>
-        /// <param name="deploymentUuid"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (InstanceLogsPreview)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InstanceLogsPreview>> GetInstanceLogsPreviewWithHttpInfoAsync(string instanceUuid, string applicationUuid, string deploymentUuid, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<InstanceLogsPreview>> GetInstanceLogsPreviewWithHttpInfoAsync(string deploymentUuid, string instanceUuid, string applicationUuid, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// 
         /// </summary>
@@ -1534,12 +1534,12 @@ namespace Fenrir.Api.Api
         /// Lists all application instances for a given deployment.
         /// </remarks>
         /// <exception cref="Fenrir.Api.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="applicationUuid"></param>
         /// <param name="deploymentUuid"></param>
+        /// <param name="applicationUuid"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApplicationInstanceListResponse</returns>
-        System.Threading.Tasks.Task<ApplicationInstanceListResponse> GetInstancesAsync(string applicationUuid, string deploymentUuid, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApplicationInstanceListResponse> GetInstancesAsync(string deploymentUuid, string applicationUuid, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// 
@@ -1548,12 +1548,12 @@ namespace Fenrir.Api.Api
         /// Lists all application instances for a given deployment.
         /// </remarks>
         /// <exception cref="Fenrir.Api.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="applicationUuid"></param>
         /// <param name="deploymentUuid"></param>
+        /// <param name="applicationUuid"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ApplicationInstanceListResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ApplicationInstanceListResponse>> GetInstancesWithHttpInfoAsync(string applicationUuid, string deploymentUuid, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<ApplicationInstanceListResponse>> GetInstancesWithHttpInfoAsync(string deploymentUuid, string applicationUuid, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// 
         /// </summary>
@@ -3192,13 +3192,13 @@ namespace Fenrir.Api.Api
         ///  Deletes an application deployment.
         /// </summary>
         /// <exception cref="Fenrir.Api.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="applicationUuid"></param>
         /// <param name="deploymentUuid"></param>
+        /// <param name="applicationUuid"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>Response</returns>
-        public Response DeleteDeployment(string applicationUuid, string deploymentUuid, int operationIndex = 0)
+        public Response DeleteDeployment(string deploymentUuid, string applicationUuid, int operationIndex = 0)
         {
-            Fenrir.Api.Client.ApiResponse<Response> localVarResponse = DeleteDeploymentWithHttpInfo(applicationUuid, deploymentUuid);
+            Fenrir.Api.Client.ApiResponse<Response> localVarResponse = DeleteDeploymentWithHttpInfo(deploymentUuid, applicationUuid);
             return localVarResponse.Data;
         }
 
@@ -3206,22 +3206,22 @@ namespace Fenrir.Api.Api
         ///  Deletes an application deployment.
         /// </summary>
         /// <exception cref="Fenrir.Api.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="applicationUuid"></param>
         /// <param name="deploymentUuid"></param>
+        /// <param name="applicationUuid"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of Response</returns>
-        public Fenrir.Api.Client.ApiResponse<Response> DeleteDeploymentWithHttpInfo(string applicationUuid, string deploymentUuid, int operationIndex = 0)
+        public Fenrir.Api.Client.ApiResponse<Response> DeleteDeploymentWithHttpInfo(string deploymentUuid, string applicationUuid, int operationIndex = 0)
         {
-            // verify the required parameter 'applicationUuid' is set
-            if (applicationUuid == null)
-            {
-                throw new Fenrir.Api.Client.ApiException(400, "Missing required parameter 'applicationUuid' when calling FenrirApi->DeleteDeployment");
-            }
-
             // verify the required parameter 'deploymentUuid' is set
             if (deploymentUuid == null)
             {
                 throw new Fenrir.Api.Client.ApiException(400, "Missing required parameter 'deploymentUuid' when calling FenrirApi->DeleteDeployment");
+            }
+
+            // verify the required parameter 'applicationUuid' is set
+            if (applicationUuid == null)
+            {
+                throw new Fenrir.Api.Client.ApiException(400, "Missing required parameter 'applicationUuid' when calling FenrirApi->DeleteDeployment");
             }
 
             Fenrir.Api.Client.RequestOptions localVarRequestOptions = new Fenrir.Api.Client.RequestOptions();
@@ -3246,8 +3246,8 @@ namespace Fenrir.Api.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
-            localVarRequestOptions.PathParameters.Add("application_uuid", Fenrir.Api.Client.ClientUtils.ParameterToString(applicationUuid)); // path parameter
             localVarRequestOptions.PathParameters.Add("deployment_uuid", Fenrir.Api.Client.ClientUtils.ParameterToString(deploymentUuid)); // path parameter
+            localVarRequestOptions.PathParameters.Add("application_uuid", Fenrir.Api.Client.ClientUtils.ParameterToString(applicationUuid)); // path parameter
 
             localVarRequestOptions.Operation = "FenrirApi.DeleteDeployment";
             localVarRequestOptions.OperationIndex = operationIndex;
@@ -3277,14 +3277,14 @@ namespace Fenrir.Api.Api
         ///  Deletes an application deployment.
         /// </summary>
         /// <exception cref="Fenrir.Api.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="applicationUuid"></param>
         /// <param name="deploymentUuid"></param>
+        /// <param name="applicationUuid"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Response</returns>
-        public async System.Threading.Tasks.Task<Response> DeleteDeploymentAsync(string applicationUuid, string deploymentUuid, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Response> DeleteDeploymentAsync(string deploymentUuid, string applicationUuid, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Fenrir.Api.Client.ApiResponse<Response> localVarResponse = await DeleteDeploymentWithHttpInfoAsync(applicationUuid, deploymentUuid, operationIndex, cancellationToken).ConfigureAwait(false);
+            Fenrir.Api.Client.ApiResponse<Response> localVarResponse = await DeleteDeploymentWithHttpInfoAsync(deploymentUuid, applicationUuid, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -3292,23 +3292,23 @@ namespace Fenrir.Api.Api
         ///  Deletes an application deployment.
         /// </summary>
         /// <exception cref="Fenrir.Api.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="applicationUuid"></param>
         /// <param name="deploymentUuid"></param>
+        /// <param name="applicationUuid"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Response)</returns>
-        public async System.Threading.Tasks.Task<Fenrir.Api.Client.ApiResponse<Response>> DeleteDeploymentWithHttpInfoAsync(string applicationUuid, string deploymentUuid, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Fenrir.Api.Client.ApiResponse<Response>> DeleteDeploymentWithHttpInfoAsync(string deploymentUuid, string applicationUuid, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            // verify the required parameter 'applicationUuid' is set
-            if (applicationUuid == null)
-            {
-                throw new Fenrir.Api.Client.ApiException(400, "Missing required parameter 'applicationUuid' when calling FenrirApi->DeleteDeployment");
-            }
-
             // verify the required parameter 'deploymentUuid' is set
             if (deploymentUuid == null)
             {
                 throw new Fenrir.Api.Client.ApiException(400, "Missing required parameter 'deploymentUuid' when calling FenrirApi->DeleteDeployment");
+            }
+
+            // verify the required parameter 'applicationUuid' is set
+            if (applicationUuid == null)
+            {
+                throw new Fenrir.Api.Client.ApiException(400, "Missing required parameter 'applicationUuid' when calling FenrirApi->DeleteDeployment");
             }
 
 
@@ -3334,8 +3334,8 @@ namespace Fenrir.Api.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
-            localVarRequestOptions.PathParameters.Add("application_uuid", Fenrir.Api.Client.ClientUtils.ParameterToString(applicationUuid)); // path parameter
             localVarRequestOptions.PathParameters.Add("deployment_uuid", Fenrir.Api.Client.ClientUtils.ParameterToString(deploymentUuid)); // path parameter
+            localVarRequestOptions.PathParameters.Add("application_uuid", Fenrir.Api.Client.ClientUtils.ParameterToString(applicationUuid)); // path parameter
 
             localVarRequestOptions.Operation = "FenrirApi.DeleteDeployment";
             localVarRequestOptions.OperationIndex = operationIndex;
@@ -4956,13 +4956,13 @@ namespace Fenrir.Api.Api
         ///  Retrieves an application deployment.
         /// </summary>
         /// <exception cref="Fenrir.Api.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="applicationUuid"></param>
         /// <param name="deploymentUuid"></param>
+        /// <param name="applicationUuid"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>DeploymentResponse</returns>
-        public DeploymentResponse GetDeployment(string applicationUuid, string deploymentUuid, int operationIndex = 0)
+        public DeploymentResponse GetDeployment(string deploymentUuid, string applicationUuid, int operationIndex = 0)
         {
-            Fenrir.Api.Client.ApiResponse<DeploymentResponse> localVarResponse = GetDeploymentWithHttpInfo(applicationUuid, deploymentUuid);
+            Fenrir.Api.Client.ApiResponse<DeploymentResponse> localVarResponse = GetDeploymentWithHttpInfo(deploymentUuid, applicationUuid);
             return localVarResponse.Data;
         }
 
@@ -4970,22 +4970,22 @@ namespace Fenrir.Api.Api
         ///  Retrieves an application deployment.
         /// </summary>
         /// <exception cref="Fenrir.Api.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="applicationUuid"></param>
         /// <param name="deploymentUuid"></param>
+        /// <param name="applicationUuid"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of DeploymentResponse</returns>
-        public Fenrir.Api.Client.ApiResponse<DeploymentResponse> GetDeploymentWithHttpInfo(string applicationUuid, string deploymentUuid, int operationIndex = 0)
+        public Fenrir.Api.Client.ApiResponse<DeploymentResponse> GetDeploymentWithHttpInfo(string deploymentUuid, string applicationUuid, int operationIndex = 0)
         {
-            // verify the required parameter 'applicationUuid' is set
-            if (applicationUuid == null)
-            {
-                throw new Fenrir.Api.Client.ApiException(400, "Missing required parameter 'applicationUuid' when calling FenrirApi->GetDeployment");
-            }
-
             // verify the required parameter 'deploymentUuid' is set
             if (deploymentUuid == null)
             {
                 throw new Fenrir.Api.Client.ApiException(400, "Missing required parameter 'deploymentUuid' when calling FenrirApi->GetDeployment");
+            }
+
+            // verify the required parameter 'applicationUuid' is set
+            if (applicationUuid == null)
+            {
+                throw new Fenrir.Api.Client.ApiException(400, "Missing required parameter 'applicationUuid' when calling FenrirApi->GetDeployment");
             }
 
             Fenrir.Api.Client.RequestOptions localVarRequestOptions = new Fenrir.Api.Client.RequestOptions();
@@ -5010,8 +5010,8 @@ namespace Fenrir.Api.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
-            localVarRequestOptions.PathParameters.Add("application_uuid", Fenrir.Api.Client.ClientUtils.ParameterToString(applicationUuid)); // path parameter
             localVarRequestOptions.PathParameters.Add("deployment_uuid", Fenrir.Api.Client.ClientUtils.ParameterToString(deploymentUuid)); // path parameter
+            localVarRequestOptions.PathParameters.Add("application_uuid", Fenrir.Api.Client.ClientUtils.ParameterToString(applicationUuid)); // path parameter
 
             localVarRequestOptions.Operation = "FenrirApi.GetDeployment";
             localVarRequestOptions.OperationIndex = operationIndex;
@@ -5041,14 +5041,14 @@ namespace Fenrir.Api.Api
         ///  Retrieves an application deployment.
         /// </summary>
         /// <exception cref="Fenrir.Api.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="applicationUuid"></param>
         /// <param name="deploymentUuid"></param>
+        /// <param name="applicationUuid"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of DeploymentResponse</returns>
-        public async System.Threading.Tasks.Task<DeploymentResponse> GetDeploymentAsync(string applicationUuid, string deploymentUuid, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<DeploymentResponse> GetDeploymentAsync(string deploymentUuid, string applicationUuid, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Fenrir.Api.Client.ApiResponse<DeploymentResponse> localVarResponse = await GetDeploymentWithHttpInfoAsync(applicationUuid, deploymentUuid, operationIndex, cancellationToken).ConfigureAwait(false);
+            Fenrir.Api.Client.ApiResponse<DeploymentResponse> localVarResponse = await GetDeploymentWithHttpInfoAsync(deploymentUuid, applicationUuid, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -5056,23 +5056,23 @@ namespace Fenrir.Api.Api
         ///  Retrieves an application deployment.
         /// </summary>
         /// <exception cref="Fenrir.Api.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="applicationUuid"></param>
         /// <param name="deploymentUuid"></param>
+        /// <param name="applicationUuid"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (DeploymentResponse)</returns>
-        public async System.Threading.Tasks.Task<Fenrir.Api.Client.ApiResponse<DeploymentResponse>> GetDeploymentWithHttpInfoAsync(string applicationUuid, string deploymentUuid, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Fenrir.Api.Client.ApiResponse<DeploymentResponse>> GetDeploymentWithHttpInfoAsync(string deploymentUuid, string applicationUuid, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            // verify the required parameter 'applicationUuid' is set
-            if (applicationUuid == null)
-            {
-                throw new Fenrir.Api.Client.ApiException(400, "Missing required parameter 'applicationUuid' when calling FenrirApi->GetDeployment");
-            }
-
             // verify the required parameter 'deploymentUuid' is set
             if (deploymentUuid == null)
             {
                 throw new Fenrir.Api.Client.ApiException(400, "Missing required parameter 'deploymentUuid' when calling FenrirApi->GetDeployment");
+            }
+
+            // verify the required parameter 'applicationUuid' is set
+            if (applicationUuid == null)
+            {
+                throw new Fenrir.Api.Client.ApiException(400, "Missing required parameter 'applicationUuid' when calling FenrirApi->GetDeployment");
             }
 
 
@@ -5098,8 +5098,8 @@ namespace Fenrir.Api.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
-            localVarRequestOptions.PathParameters.Add("application_uuid", Fenrir.Api.Client.ClientUtils.ParameterToString(applicationUuid)); // path parameter
             localVarRequestOptions.PathParameters.Add("deployment_uuid", Fenrir.Api.Client.ClientUtils.ParameterToString(deploymentUuid)); // path parameter
+            localVarRequestOptions.PathParameters.Add("application_uuid", Fenrir.Api.Client.ClientUtils.ParameterToString(applicationUuid)); // path parameter
 
             localVarRequestOptions.Operation = "FenrirApi.GetDeployment";
             localVarRequestOptions.OperationIndex = operationIndex;
@@ -5130,14 +5130,14 @@ namespace Fenrir.Api.Api
         ///  Retrieves deployment stats.
         /// </summary>
         /// <exception cref="Fenrir.Api.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="applicationUuid"></param>
         /// <param name="deploymentUuid"></param>
+        /// <param name="applicationUuid"></param>
         /// <param name="filter"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>DeploymentStatsResponse</returns>
-        public DeploymentStatsResponse GetDeploymentStats(string applicationUuid, string deploymentUuid, List<string> filter = default(List<string>), int operationIndex = 0)
+        public DeploymentStatsResponse GetDeploymentStats(string deploymentUuid, string applicationUuid, List<string> filter = default(List<string>), int operationIndex = 0)
         {
-            Fenrir.Api.Client.ApiResponse<DeploymentStatsResponse> localVarResponse = GetDeploymentStatsWithHttpInfo(applicationUuid, deploymentUuid, filter);
+            Fenrir.Api.Client.ApiResponse<DeploymentStatsResponse> localVarResponse = GetDeploymentStatsWithHttpInfo(deploymentUuid, applicationUuid, filter);
             return localVarResponse.Data;
         }
 
@@ -5145,23 +5145,23 @@ namespace Fenrir.Api.Api
         ///  Retrieves deployment stats.
         /// </summary>
         /// <exception cref="Fenrir.Api.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="applicationUuid"></param>
         /// <param name="deploymentUuid"></param>
+        /// <param name="applicationUuid"></param>
         /// <param name="filter"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of DeploymentStatsResponse</returns>
-        public Fenrir.Api.Client.ApiResponse<DeploymentStatsResponse> GetDeploymentStatsWithHttpInfo(string applicationUuid, string deploymentUuid, List<string> filter = default(List<string>), int operationIndex = 0)
+        public Fenrir.Api.Client.ApiResponse<DeploymentStatsResponse> GetDeploymentStatsWithHttpInfo(string deploymentUuid, string applicationUuid, List<string> filter = default(List<string>), int operationIndex = 0)
         {
-            // verify the required parameter 'applicationUuid' is set
-            if (applicationUuid == null)
-            {
-                throw new Fenrir.Api.Client.ApiException(400, "Missing required parameter 'applicationUuid' when calling FenrirApi->GetDeploymentStats");
-            }
-
             // verify the required parameter 'deploymentUuid' is set
             if (deploymentUuid == null)
             {
                 throw new Fenrir.Api.Client.ApiException(400, "Missing required parameter 'deploymentUuid' when calling FenrirApi->GetDeploymentStats");
+            }
+
+            // verify the required parameter 'applicationUuid' is set
+            if (applicationUuid == null)
+            {
+                throw new Fenrir.Api.Client.ApiException(400, "Missing required parameter 'applicationUuid' when calling FenrirApi->GetDeploymentStats");
             }
 
             Fenrir.Api.Client.RequestOptions localVarRequestOptions = new Fenrir.Api.Client.RequestOptions();
@@ -5186,8 +5186,8 @@ namespace Fenrir.Api.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
-            localVarRequestOptions.PathParameters.Add("application_uuid", Fenrir.Api.Client.ClientUtils.ParameterToString(applicationUuid)); // path parameter
             localVarRequestOptions.PathParameters.Add("deployment_uuid", Fenrir.Api.Client.ClientUtils.ParameterToString(deploymentUuid)); // path parameter
+            localVarRequestOptions.PathParameters.Add("application_uuid", Fenrir.Api.Client.ClientUtils.ParameterToString(applicationUuid)); // path parameter
             if (filter != null)
             {
                 localVarRequestOptions.QueryParameters.Add(Fenrir.Api.Client.ClientUtils.ParameterToMultiMap("multi", "filter", filter));
@@ -5221,15 +5221,15 @@ namespace Fenrir.Api.Api
         ///  Retrieves deployment stats.
         /// </summary>
         /// <exception cref="Fenrir.Api.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="applicationUuid"></param>
         /// <param name="deploymentUuid"></param>
+        /// <param name="applicationUuid"></param>
         /// <param name="filter"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of DeploymentStatsResponse</returns>
-        public async System.Threading.Tasks.Task<DeploymentStatsResponse> GetDeploymentStatsAsync(string applicationUuid, string deploymentUuid, List<string> filter = default(List<string>), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<DeploymentStatsResponse> GetDeploymentStatsAsync(string deploymentUuid, string applicationUuid, List<string> filter = default(List<string>), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Fenrir.Api.Client.ApiResponse<DeploymentStatsResponse> localVarResponse = await GetDeploymentStatsWithHttpInfoAsync(applicationUuid, deploymentUuid, filter, operationIndex, cancellationToken).ConfigureAwait(false);
+            Fenrir.Api.Client.ApiResponse<DeploymentStatsResponse> localVarResponse = await GetDeploymentStatsWithHttpInfoAsync(deploymentUuid, applicationUuid, filter, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -5237,24 +5237,24 @@ namespace Fenrir.Api.Api
         ///  Retrieves deployment stats.
         /// </summary>
         /// <exception cref="Fenrir.Api.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="applicationUuid"></param>
         /// <param name="deploymentUuid"></param>
+        /// <param name="applicationUuid"></param>
         /// <param name="filter"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (DeploymentStatsResponse)</returns>
-        public async System.Threading.Tasks.Task<Fenrir.Api.Client.ApiResponse<DeploymentStatsResponse>> GetDeploymentStatsWithHttpInfoAsync(string applicationUuid, string deploymentUuid, List<string> filter = default(List<string>), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Fenrir.Api.Client.ApiResponse<DeploymentStatsResponse>> GetDeploymentStatsWithHttpInfoAsync(string deploymentUuid, string applicationUuid, List<string> filter = default(List<string>), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            // verify the required parameter 'applicationUuid' is set
-            if (applicationUuid == null)
-            {
-                throw new Fenrir.Api.Client.ApiException(400, "Missing required parameter 'applicationUuid' when calling FenrirApi->GetDeploymentStats");
-            }
-
             // verify the required parameter 'deploymentUuid' is set
             if (deploymentUuid == null)
             {
                 throw new Fenrir.Api.Client.ApiException(400, "Missing required parameter 'deploymentUuid' when calling FenrirApi->GetDeploymentStats");
+            }
+
+            // verify the required parameter 'applicationUuid' is set
+            if (applicationUuid == null)
+            {
+                throw new Fenrir.Api.Client.ApiException(400, "Missing required parameter 'applicationUuid' when calling FenrirApi->GetDeploymentStats");
             }
 
 
@@ -5280,8 +5280,8 @@ namespace Fenrir.Api.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
-            localVarRequestOptions.PathParameters.Add("application_uuid", Fenrir.Api.Client.ClientUtils.ParameterToString(applicationUuid)); // path parameter
             localVarRequestOptions.PathParameters.Add("deployment_uuid", Fenrir.Api.Client.ClientUtils.ParameterToString(deploymentUuid)); // path parameter
+            localVarRequestOptions.PathParameters.Add("application_uuid", Fenrir.Api.Client.ClientUtils.ParameterToString(applicationUuid)); // path parameter
             if (filter != null)
             {
                 localVarRequestOptions.QueryParameters.Add(Fenrir.Api.Client.ClientUtils.ParameterToMultiMap("multi", "filter", filter));
@@ -5628,14 +5628,14 @@ namespace Fenrir.Api.Api
         ///  Retrieves an application instance.
         /// </summary>
         /// <exception cref="Fenrir.Api.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="deploymentUuid"></param>
         /// <param name="instanceUuid"></param>
         /// <param name="applicationUuid"></param>
-        /// <param name="deploymentUuid"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApplicationInstanceResponse</returns>
-        public ApplicationInstanceResponse GetInstance(string instanceUuid, string applicationUuid, string deploymentUuid, int operationIndex = 0)
+        public ApplicationInstanceResponse GetInstance(string deploymentUuid, string instanceUuid, string applicationUuid, int operationIndex = 0)
         {
-            Fenrir.Api.Client.ApiResponse<ApplicationInstanceResponse> localVarResponse = GetInstanceWithHttpInfo(instanceUuid, applicationUuid, deploymentUuid);
+            Fenrir.Api.Client.ApiResponse<ApplicationInstanceResponse> localVarResponse = GetInstanceWithHttpInfo(deploymentUuid, instanceUuid, applicationUuid);
             return localVarResponse.Data;
         }
 
@@ -5643,13 +5643,19 @@ namespace Fenrir.Api.Api
         ///  Retrieves an application instance.
         /// </summary>
         /// <exception cref="Fenrir.Api.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="deploymentUuid"></param>
         /// <param name="instanceUuid"></param>
         /// <param name="applicationUuid"></param>
-        /// <param name="deploymentUuid"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of ApplicationInstanceResponse</returns>
-        public Fenrir.Api.Client.ApiResponse<ApplicationInstanceResponse> GetInstanceWithHttpInfo(string instanceUuid, string applicationUuid, string deploymentUuid, int operationIndex = 0)
+        public Fenrir.Api.Client.ApiResponse<ApplicationInstanceResponse> GetInstanceWithHttpInfo(string deploymentUuid, string instanceUuid, string applicationUuid, int operationIndex = 0)
         {
+            // verify the required parameter 'deploymentUuid' is set
+            if (deploymentUuid == null)
+            {
+                throw new Fenrir.Api.Client.ApiException(400, "Missing required parameter 'deploymentUuid' when calling FenrirApi->GetInstance");
+            }
+
             // verify the required parameter 'instanceUuid' is set
             if (instanceUuid == null)
             {
@@ -5660,12 +5666,6 @@ namespace Fenrir.Api.Api
             if (applicationUuid == null)
             {
                 throw new Fenrir.Api.Client.ApiException(400, "Missing required parameter 'applicationUuid' when calling FenrirApi->GetInstance");
-            }
-
-            // verify the required parameter 'deploymentUuid' is set
-            if (deploymentUuid == null)
-            {
-                throw new Fenrir.Api.Client.ApiException(400, "Missing required parameter 'deploymentUuid' when calling FenrirApi->GetInstance");
             }
 
             Fenrir.Api.Client.RequestOptions localVarRequestOptions = new Fenrir.Api.Client.RequestOptions();
@@ -5690,9 +5690,9 @@ namespace Fenrir.Api.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
+            localVarRequestOptions.PathParameters.Add("deployment_uuid", Fenrir.Api.Client.ClientUtils.ParameterToString(deploymentUuid)); // path parameter
             localVarRequestOptions.PathParameters.Add("instance_uuid", Fenrir.Api.Client.ClientUtils.ParameterToString(instanceUuid)); // path parameter
             localVarRequestOptions.PathParameters.Add("application_uuid", Fenrir.Api.Client.ClientUtils.ParameterToString(applicationUuid)); // path parameter
-            localVarRequestOptions.PathParameters.Add("deployment_uuid", Fenrir.Api.Client.ClientUtils.ParameterToString(deploymentUuid)); // path parameter
 
             localVarRequestOptions.Operation = "FenrirApi.GetInstance";
             localVarRequestOptions.OperationIndex = operationIndex;
@@ -5722,15 +5722,15 @@ namespace Fenrir.Api.Api
         ///  Retrieves an application instance.
         /// </summary>
         /// <exception cref="Fenrir.Api.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="deploymentUuid"></param>
         /// <param name="instanceUuid"></param>
         /// <param name="applicationUuid"></param>
-        /// <param name="deploymentUuid"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApplicationInstanceResponse</returns>
-        public async System.Threading.Tasks.Task<ApplicationInstanceResponse> GetInstanceAsync(string instanceUuid, string applicationUuid, string deploymentUuid, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ApplicationInstanceResponse> GetInstanceAsync(string deploymentUuid, string instanceUuid, string applicationUuid, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Fenrir.Api.Client.ApiResponse<ApplicationInstanceResponse> localVarResponse = await GetInstanceWithHttpInfoAsync(instanceUuid, applicationUuid, deploymentUuid, operationIndex, cancellationToken).ConfigureAwait(false);
+            Fenrir.Api.Client.ApiResponse<ApplicationInstanceResponse> localVarResponse = await GetInstanceWithHttpInfoAsync(deploymentUuid, instanceUuid, applicationUuid, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -5738,14 +5738,20 @@ namespace Fenrir.Api.Api
         ///  Retrieves an application instance.
         /// </summary>
         /// <exception cref="Fenrir.Api.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="deploymentUuid"></param>
         /// <param name="instanceUuid"></param>
         /// <param name="applicationUuid"></param>
-        /// <param name="deploymentUuid"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ApplicationInstanceResponse)</returns>
-        public async System.Threading.Tasks.Task<Fenrir.Api.Client.ApiResponse<ApplicationInstanceResponse>> GetInstanceWithHttpInfoAsync(string instanceUuid, string applicationUuid, string deploymentUuid, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Fenrir.Api.Client.ApiResponse<ApplicationInstanceResponse>> GetInstanceWithHttpInfoAsync(string deploymentUuid, string instanceUuid, string applicationUuid, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
+            // verify the required parameter 'deploymentUuid' is set
+            if (deploymentUuid == null)
+            {
+                throw new Fenrir.Api.Client.ApiException(400, "Missing required parameter 'deploymentUuid' when calling FenrirApi->GetInstance");
+            }
+
             // verify the required parameter 'instanceUuid' is set
             if (instanceUuid == null)
             {
@@ -5756,12 +5762,6 @@ namespace Fenrir.Api.Api
             if (applicationUuid == null)
             {
                 throw new Fenrir.Api.Client.ApiException(400, "Missing required parameter 'applicationUuid' when calling FenrirApi->GetInstance");
-            }
-
-            // verify the required parameter 'deploymentUuid' is set
-            if (deploymentUuid == null)
-            {
-                throw new Fenrir.Api.Client.ApiException(400, "Missing required parameter 'deploymentUuid' when calling FenrirApi->GetInstance");
             }
 
 
@@ -5787,9 +5787,9 @@ namespace Fenrir.Api.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
+            localVarRequestOptions.PathParameters.Add("deployment_uuid", Fenrir.Api.Client.ClientUtils.ParameterToString(deploymentUuid)); // path parameter
             localVarRequestOptions.PathParameters.Add("instance_uuid", Fenrir.Api.Client.ClientUtils.ParameterToString(instanceUuid)); // path parameter
             localVarRequestOptions.PathParameters.Add("application_uuid", Fenrir.Api.Client.ClientUtils.ParameterToString(applicationUuid)); // path parameter
-            localVarRequestOptions.PathParameters.Add("deployment_uuid", Fenrir.Api.Client.ClientUtils.ParameterToString(deploymentUuid)); // path parameter
 
             localVarRequestOptions.Operation = "FenrirApi.GetInstance";
             localVarRequestOptions.OperationIndex = operationIndex;
@@ -5820,14 +5820,14 @@ namespace Fenrir.Api.Api
         ///  Retrieves application instance logs.
         /// </summary>
         /// <exception cref="Fenrir.Api.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="deploymentUuid"></param>
         /// <param name="instanceUuid"></param>
         /// <param name="applicationUuid"></param>
-        /// <param name="deploymentUuid"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>InstanceLogs</returns>
-        public InstanceLogs GetInstanceLogs(string instanceUuid, string applicationUuid, string deploymentUuid, int operationIndex = 0)
+        public InstanceLogs GetInstanceLogs(string deploymentUuid, string instanceUuid, string applicationUuid, int operationIndex = 0)
         {
-            Fenrir.Api.Client.ApiResponse<InstanceLogs> localVarResponse = GetInstanceLogsWithHttpInfo(instanceUuid, applicationUuid, deploymentUuid);
+            Fenrir.Api.Client.ApiResponse<InstanceLogs> localVarResponse = GetInstanceLogsWithHttpInfo(deploymentUuid, instanceUuid, applicationUuid);
             return localVarResponse.Data;
         }
 
@@ -5835,13 +5835,19 @@ namespace Fenrir.Api.Api
         ///  Retrieves application instance logs.
         /// </summary>
         /// <exception cref="Fenrir.Api.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="deploymentUuid"></param>
         /// <param name="instanceUuid"></param>
         /// <param name="applicationUuid"></param>
-        /// <param name="deploymentUuid"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of InstanceLogs</returns>
-        public Fenrir.Api.Client.ApiResponse<InstanceLogs> GetInstanceLogsWithHttpInfo(string instanceUuid, string applicationUuid, string deploymentUuid, int operationIndex = 0)
+        public Fenrir.Api.Client.ApiResponse<InstanceLogs> GetInstanceLogsWithHttpInfo(string deploymentUuid, string instanceUuid, string applicationUuid, int operationIndex = 0)
         {
+            // verify the required parameter 'deploymentUuid' is set
+            if (deploymentUuid == null)
+            {
+                throw new Fenrir.Api.Client.ApiException(400, "Missing required parameter 'deploymentUuid' when calling FenrirApi->GetInstanceLogs");
+            }
+
             // verify the required parameter 'instanceUuid' is set
             if (instanceUuid == null)
             {
@@ -5852,12 +5858,6 @@ namespace Fenrir.Api.Api
             if (applicationUuid == null)
             {
                 throw new Fenrir.Api.Client.ApiException(400, "Missing required parameter 'applicationUuid' when calling FenrirApi->GetInstanceLogs");
-            }
-
-            // verify the required parameter 'deploymentUuid' is set
-            if (deploymentUuid == null)
-            {
-                throw new Fenrir.Api.Client.ApiException(400, "Missing required parameter 'deploymentUuid' when calling FenrirApi->GetInstanceLogs");
             }
 
             Fenrir.Api.Client.RequestOptions localVarRequestOptions = new Fenrir.Api.Client.RequestOptions();
@@ -5882,9 +5882,9 @@ namespace Fenrir.Api.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
+            localVarRequestOptions.PathParameters.Add("deployment_uuid", Fenrir.Api.Client.ClientUtils.ParameterToString(deploymentUuid)); // path parameter
             localVarRequestOptions.PathParameters.Add("instance_uuid", Fenrir.Api.Client.ClientUtils.ParameterToString(instanceUuid)); // path parameter
             localVarRequestOptions.PathParameters.Add("application_uuid", Fenrir.Api.Client.ClientUtils.ParameterToString(applicationUuid)); // path parameter
-            localVarRequestOptions.PathParameters.Add("deployment_uuid", Fenrir.Api.Client.ClientUtils.ParameterToString(deploymentUuid)); // path parameter
 
             localVarRequestOptions.Operation = "FenrirApi.GetInstanceLogs";
             localVarRequestOptions.OperationIndex = operationIndex;
@@ -5914,15 +5914,15 @@ namespace Fenrir.Api.Api
         ///  Retrieves application instance logs.
         /// </summary>
         /// <exception cref="Fenrir.Api.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="deploymentUuid"></param>
         /// <param name="instanceUuid"></param>
         /// <param name="applicationUuid"></param>
-        /// <param name="deploymentUuid"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of InstanceLogs</returns>
-        public async System.Threading.Tasks.Task<InstanceLogs> GetInstanceLogsAsync(string instanceUuid, string applicationUuid, string deploymentUuid, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<InstanceLogs> GetInstanceLogsAsync(string deploymentUuid, string instanceUuid, string applicationUuid, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Fenrir.Api.Client.ApiResponse<InstanceLogs> localVarResponse = await GetInstanceLogsWithHttpInfoAsync(instanceUuid, applicationUuid, deploymentUuid, operationIndex, cancellationToken).ConfigureAwait(false);
+            Fenrir.Api.Client.ApiResponse<InstanceLogs> localVarResponse = await GetInstanceLogsWithHttpInfoAsync(deploymentUuid, instanceUuid, applicationUuid, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -5930,14 +5930,20 @@ namespace Fenrir.Api.Api
         ///  Retrieves application instance logs.
         /// </summary>
         /// <exception cref="Fenrir.Api.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="deploymentUuid"></param>
         /// <param name="instanceUuid"></param>
         /// <param name="applicationUuid"></param>
-        /// <param name="deploymentUuid"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (InstanceLogs)</returns>
-        public async System.Threading.Tasks.Task<Fenrir.Api.Client.ApiResponse<InstanceLogs>> GetInstanceLogsWithHttpInfoAsync(string instanceUuid, string applicationUuid, string deploymentUuid, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Fenrir.Api.Client.ApiResponse<InstanceLogs>> GetInstanceLogsWithHttpInfoAsync(string deploymentUuid, string instanceUuid, string applicationUuid, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
+            // verify the required parameter 'deploymentUuid' is set
+            if (deploymentUuid == null)
+            {
+                throw new Fenrir.Api.Client.ApiException(400, "Missing required parameter 'deploymentUuid' when calling FenrirApi->GetInstanceLogs");
+            }
+
             // verify the required parameter 'instanceUuid' is set
             if (instanceUuid == null)
             {
@@ -5948,12 +5954,6 @@ namespace Fenrir.Api.Api
             if (applicationUuid == null)
             {
                 throw new Fenrir.Api.Client.ApiException(400, "Missing required parameter 'applicationUuid' when calling FenrirApi->GetInstanceLogs");
-            }
-
-            // verify the required parameter 'deploymentUuid' is set
-            if (deploymentUuid == null)
-            {
-                throw new Fenrir.Api.Client.ApiException(400, "Missing required parameter 'deploymentUuid' when calling FenrirApi->GetInstanceLogs");
             }
 
 
@@ -5979,9 +5979,9 @@ namespace Fenrir.Api.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
+            localVarRequestOptions.PathParameters.Add("deployment_uuid", Fenrir.Api.Client.ClientUtils.ParameterToString(deploymentUuid)); // path parameter
             localVarRequestOptions.PathParameters.Add("instance_uuid", Fenrir.Api.Client.ClientUtils.ParameterToString(instanceUuid)); // path parameter
             localVarRequestOptions.PathParameters.Add("application_uuid", Fenrir.Api.Client.ClientUtils.ParameterToString(applicationUuid)); // path parameter
-            localVarRequestOptions.PathParameters.Add("deployment_uuid", Fenrir.Api.Client.ClientUtils.ParameterToString(deploymentUuid)); // path parameter
 
             localVarRequestOptions.Operation = "FenrirApi.GetInstanceLogs";
             localVarRequestOptions.OperationIndex = operationIndex;
@@ -6012,14 +6012,14 @@ namespace Fenrir.Api.Api
         ///  Retrieves a small number of most recent application instance logs.
         /// </summary>
         /// <exception cref="Fenrir.Api.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="deploymentUuid"></param>
         /// <param name="instanceUuid"></param>
         /// <param name="applicationUuid"></param>
-        /// <param name="deploymentUuid"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>InstanceLogsPreview</returns>
-        public InstanceLogsPreview GetInstanceLogsPreview(string instanceUuid, string applicationUuid, string deploymentUuid, int operationIndex = 0)
+        public InstanceLogsPreview GetInstanceLogsPreview(string deploymentUuid, string instanceUuid, string applicationUuid, int operationIndex = 0)
         {
-            Fenrir.Api.Client.ApiResponse<InstanceLogsPreview> localVarResponse = GetInstanceLogsPreviewWithHttpInfo(instanceUuid, applicationUuid, deploymentUuid);
+            Fenrir.Api.Client.ApiResponse<InstanceLogsPreview> localVarResponse = GetInstanceLogsPreviewWithHttpInfo(deploymentUuid, instanceUuid, applicationUuid);
             return localVarResponse.Data;
         }
 
@@ -6027,13 +6027,19 @@ namespace Fenrir.Api.Api
         ///  Retrieves a small number of most recent application instance logs.
         /// </summary>
         /// <exception cref="Fenrir.Api.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="deploymentUuid"></param>
         /// <param name="instanceUuid"></param>
         /// <param name="applicationUuid"></param>
-        /// <param name="deploymentUuid"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of InstanceLogsPreview</returns>
-        public Fenrir.Api.Client.ApiResponse<InstanceLogsPreview> GetInstanceLogsPreviewWithHttpInfo(string instanceUuid, string applicationUuid, string deploymentUuid, int operationIndex = 0)
+        public Fenrir.Api.Client.ApiResponse<InstanceLogsPreview> GetInstanceLogsPreviewWithHttpInfo(string deploymentUuid, string instanceUuid, string applicationUuid, int operationIndex = 0)
         {
+            // verify the required parameter 'deploymentUuid' is set
+            if (deploymentUuid == null)
+            {
+                throw new Fenrir.Api.Client.ApiException(400, "Missing required parameter 'deploymentUuid' when calling FenrirApi->GetInstanceLogsPreview");
+            }
+
             // verify the required parameter 'instanceUuid' is set
             if (instanceUuid == null)
             {
@@ -6044,12 +6050,6 @@ namespace Fenrir.Api.Api
             if (applicationUuid == null)
             {
                 throw new Fenrir.Api.Client.ApiException(400, "Missing required parameter 'applicationUuid' when calling FenrirApi->GetInstanceLogsPreview");
-            }
-
-            // verify the required parameter 'deploymentUuid' is set
-            if (deploymentUuid == null)
-            {
-                throw new Fenrir.Api.Client.ApiException(400, "Missing required parameter 'deploymentUuid' when calling FenrirApi->GetInstanceLogsPreview");
             }
 
             Fenrir.Api.Client.RequestOptions localVarRequestOptions = new Fenrir.Api.Client.RequestOptions();
@@ -6074,9 +6074,9 @@ namespace Fenrir.Api.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
+            localVarRequestOptions.PathParameters.Add("deployment_uuid", Fenrir.Api.Client.ClientUtils.ParameterToString(deploymentUuid)); // path parameter
             localVarRequestOptions.PathParameters.Add("instance_uuid", Fenrir.Api.Client.ClientUtils.ParameterToString(instanceUuid)); // path parameter
             localVarRequestOptions.PathParameters.Add("application_uuid", Fenrir.Api.Client.ClientUtils.ParameterToString(applicationUuid)); // path parameter
-            localVarRequestOptions.PathParameters.Add("deployment_uuid", Fenrir.Api.Client.ClientUtils.ParameterToString(deploymentUuid)); // path parameter
 
             localVarRequestOptions.Operation = "FenrirApi.GetInstanceLogsPreview";
             localVarRequestOptions.OperationIndex = operationIndex;
@@ -6106,15 +6106,15 @@ namespace Fenrir.Api.Api
         ///  Retrieves a small number of most recent application instance logs.
         /// </summary>
         /// <exception cref="Fenrir.Api.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="deploymentUuid"></param>
         /// <param name="instanceUuid"></param>
         /// <param name="applicationUuid"></param>
-        /// <param name="deploymentUuid"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of InstanceLogsPreview</returns>
-        public async System.Threading.Tasks.Task<InstanceLogsPreview> GetInstanceLogsPreviewAsync(string instanceUuid, string applicationUuid, string deploymentUuid, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<InstanceLogsPreview> GetInstanceLogsPreviewAsync(string deploymentUuid, string instanceUuid, string applicationUuid, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Fenrir.Api.Client.ApiResponse<InstanceLogsPreview> localVarResponse = await GetInstanceLogsPreviewWithHttpInfoAsync(instanceUuid, applicationUuid, deploymentUuid, operationIndex, cancellationToken).ConfigureAwait(false);
+            Fenrir.Api.Client.ApiResponse<InstanceLogsPreview> localVarResponse = await GetInstanceLogsPreviewWithHttpInfoAsync(deploymentUuid, instanceUuid, applicationUuid, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -6122,14 +6122,20 @@ namespace Fenrir.Api.Api
         ///  Retrieves a small number of most recent application instance logs.
         /// </summary>
         /// <exception cref="Fenrir.Api.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="deploymentUuid"></param>
         /// <param name="instanceUuid"></param>
         /// <param name="applicationUuid"></param>
-        /// <param name="deploymentUuid"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (InstanceLogsPreview)</returns>
-        public async System.Threading.Tasks.Task<Fenrir.Api.Client.ApiResponse<InstanceLogsPreview>> GetInstanceLogsPreviewWithHttpInfoAsync(string instanceUuid, string applicationUuid, string deploymentUuid, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Fenrir.Api.Client.ApiResponse<InstanceLogsPreview>> GetInstanceLogsPreviewWithHttpInfoAsync(string deploymentUuid, string instanceUuid, string applicationUuid, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
+            // verify the required parameter 'deploymentUuid' is set
+            if (deploymentUuid == null)
+            {
+                throw new Fenrir.Api.Client.ApiException(400, "Missing required parameter 'deploymentUuid' when calling FenrirApi->GetInstanceLogsPreview");
+            }
+
             // verify the required parameter 'instanceUuid' is set
             if (instanceUuid == null)
             {
@@ -6140,12 +6146,6 @@ namespace Fenrir.Api.Api
             if (applicationUuid == null)
             {
                 throw new Fenrir.Api.Client.ApiException(400, "Missing required parameter 'applicationUuid' when calling FenrirApi->GetInstanceLogsPreview");
-            }
-
-            // verify the required parameter 'deploymentUuid' is set
-            if (deploymentUuid == null)
-            {
-                throw new Fenrir.Api.Client.ApiException(400, "Missing required parameter 'deploymentUuid' when calling FenrirApi->GetInstanceLogsPreview");
             }
 
 
@@ -6171,9 +6171,9 @@ namespace Fenrir.Api.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
+            localVarRequestOptions.PathParameters.Add("deployment_uuid", Fenrir.Api.Client.ClientUtils.ParameterToString(deploymentUuid)); // path parameter
             localVarRequestOptions.PathParameters.Add("instance_uuid", Fenrir.Api.Client.ClientUtils.ParameterToString(instanceUuid)); // path parameter
             localVarRequestOptions.PathParameters.Add("application_uuid", Fenrir.Api.Client.ClientUtils.ParameterToString(applicationUuid)); // path parameter
-            localVarRequestOptions.PathParameters.Add("deployment_uuid", Fenrir.Api.Client.ClientUtils.ParameterToString(deploymentUuid)); // path parameter
 
             localVarRequestOptions.Operation = "FenrirApi.GetInstanceLogsPreview";
             localVarRequestOptions.OperationIndex = operationIndex;
@@ -6204,13 +6204,13 @@ namespace Fenrir.Api.Api
         ///  Lists all application instances for a given deployment.
         /// </summary>
         /// <exception cref="Fenrir.Api.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="applicationUuid"></param>
         /// <param name="deploymentUuid"></param>
+        /// <param name="applicationUuid"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApplicationInstanceListResponse</returns>
-        public ApplicationInstanceListResponse GetInstances(string applicationUuid, string deploymentUuid, int operationIndex = 0)
+        public ApplicationInstanceListResponse GetInstances(string deploymentUuid, string applicationUuid, int operationIndex = 0)
         {
-            Fenrir.Api.Client.ApiResponse<ApplicationInstanceListResponse> localVarResponse = GetInstancesWithHttpInfo(applicationUuid, deploymentUuid);
+            Fenrir.Api.Client.ApiResponse<ApplicationInstanceListResponse> localVarResponse = GetInstancesWithHttpInfo(deploymentUuid, applicationUuid);
             return localVarResponse.Data;
         }
 
@@ -6218,22 +6218,22 @@ namespace Fenrir.Api.Api
         ///  Lists all application instances for a given deployment.
         /// </summary>
         /// <exception cref="Fenrir.Api.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="applicationUuid"></param>
         /// <param name="deploymentUuid"></param>
+        /// <param name="applicationUuid"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of ApplicationInstanceListResponse</returns>
-        public Fenrir.Api.Client.ApiResponse<ApplicationInstanceListResponse> GetInstancesWithHttpInfo(string applicationUuid, string deploymentUuid, int operationIndex = 0)
+        public Fenrir.Api.Client.ApiResponse<ApplicationInstanceListResponse> GetInstancesWithHttpInfo(string deploymentUuid, string applicationUuid, int operationIndex = 0)
         {
-            // verify the required parameter 'applicationUuid' is set
-            if (applicationUuid == null)
-            {
-                throw new Fenrir.Api.Client.ApiException(400, "Missing required parameter 'applicationUuid' when calling FenrirApi->GetInstances");
-            }
-
             // verify the required parameter 'deploymentUuid' is set
             if (deploymentUuid == null)
             {
                 throw new Fenrir.Api.Client.ApiException(400, "Missing required parameter 'deploymentUuid' when calling FenrirApi->GetInstances");
+            }
+
+            // verify the required parameter 'applicationUuid' is set
+            if (applicationUuid == null)
+            {
+                throw new Fenrir.Api.Client.ApiException(400, "Missing required parameter 'applicationUuid' when calling FenrirApi->GetInstances");
             }
 
             Fenrir.Api.Client.RequestOptions localVarRequestOptions = new Fenrir.Api.Client.RequestOptions();
@@ -6258,8 +6258,8 @@ namespace Fenrir.Api.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
-            localVarRequestOptions.PathParameters.Add("application_uuid", Fenrir.Api.Client.ClientUtils.ParameterToString(applicationUuid)); // path parameter
             localVarRequestOptions.PathParameters.Add("deployment_uuid", Fenrir.Api.Client.ClientUtils.ParameterToString(deploymentUuid)); // path parameter
+            localVarRequestOptions.PathParameters.Add("application_uuid", Fenrir.Api.Client.ClientUtils.ParameterToString(applicationUuid)); // path parameter
 
             localVarRequestOptions.Operation = "FenrirApi.GetInstances";
             localVarRequestOptions.OperationIndex = operationIndex;
@@ -6289,14 +6289,14 @@ namespace Fenrir.Api.Api
         ///  Lists all application instances for a given deployment.
         /// </summary>
         /// <exception cref="Fenrir.Api.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="applicationUuid"></param>
         /// <param name="deploymentUuid"></param>
+        /// <param name="applicationUuid"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApplicationInstanceListResponse</returns>
-        public async System.Threading.Tasks.Task<ApplicationInstanceListResponse> GetInstancesAsync(string applicationUuid, string deploymentUuid, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ApplicationInstanceListResponse> GetInstancesAsync(string deploymentUuid, string applicationUuid, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Fenrir.Api.Client.ApiResponse<ApplicationInstanceListResponse> localVarResponse = await GetInstancesWithHttpInfoAsync(applicationUuid, deploymentUuid, operationIndex, cancellationToken).ConfigureAwait(false);
+            Fenrir.Api.Client.ApiResponse<ApplicationInstanceListResponse> localVarResponse = await GetInstancesWithHttpInfoAsync(deploymentUuid, applicationUuid, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -6304,23 +6304,23 @@ namespace Fenrir.Api.Api
         ///  Lists all application instances for a given deployment.
         /// </summary>
         /// <exception cref="Fenrir.Api.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="applicationUuid"></param>
         /// <param name="deploymentUuid"></param>
+        /// <param name="applicationUuid"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ApplicationInstanceListResponse)</returns>
-        public async System.Threading.Tasks.Task<Fenrir.Api.Client.ApiResponse<ApplicationInstanceListResponse>> GetInstancesWithHttpInfoAsync(string applicationUuid, string deploymentUuid, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Fenrir.Api.Client.ApiResponse<ApplicationInstanceListResponse>> GetInstancesWithHttpInfoAsync(string deploymentUuid, string applicationUuid, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            // verify the required parameter 'applicationUuid' is set
-            if (applicationUuid == null)
-            {
-                throw new Fenrir.Api.Client.ApiException(400, "Missing required parameter 'applicationUuid' when calling FenrirApi->GetInstances");
-            }
-
             // verify the required parameter 'deploymentUuid' is set
             if (deploymentUuid == null)
             {
                 throw new Fenrir.Api.Client.ApiException(400, "Missing required parameter 'deploymentUuid' when calling FenrirApi->GetInstances");
+            }
+
+            // verify the required parameter 'applicationUuid' is set
+            if (applicationUuid == null)
+            {
+                throw new Fenrir.Api.Client.ApiException(400, "Missing required parameter 'applicationUuid' when calling FenrirApi->GetInstances");
             }
 
 
@@ -6346,8 +6346,8 @@ namespace Fenrir.Api.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
-            localVarRequestOptions.PathParameters.Add("application_uuid", Fenrir.Api.Client.ClientUtils.ParameterToString(applicationUuid)); // path parameter
             localVarRequestOptions.PathParameters.Add("deployment_uuid", Fenrir.Api.Client.ClientUtils.ParameterToString(deploymentUuid)); // path parameter
+            localVarRequestOptions.PathParameters.Add("application_uuid", Fenrir.Api.Client.ClientUtils.ParameterToString(applicationUuid)); // path parameter
 
             localVarRequestOptions.Operation = "FenrirApi.GetInstances";
             localVarRequestOptions.OperationIndex = operationIndex;

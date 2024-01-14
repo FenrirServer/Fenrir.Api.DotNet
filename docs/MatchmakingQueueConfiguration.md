@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **ConfirmationRequired** | **bool** | A boolean value indicating if match confirmation is required. If set to true, players will receive confirmation event before the match is formed. All matched players must confirm their participation within a time specified with \&quot;confirmation_time_seconds\&quot;, otherwise match is aborted. | [optional] 
-**ConfirmationTimeSeconds** | **decimal** | A number of seconds given to players to confirm their match participation. | [optional] 
+**ConfirmationTimeSeconds** | **decimal?** | A number of seconds given to players to confirm their match participation. | [optional] 
 **Created** | **DateTime** | Time when the configuration was created. | [optional] [readonly] 
 **DeploymentUuid** | **string** | A uuid of the deployment this matchmaking queue will point at. When a match is formed, a server is selected from the specified deployment. | 
 **PlayerProperties** | [**List&lt;MatchmakingQueueConfigurationPlayerProperty&gt;**](MatchmakingQueueConfigurationPlayerProperty.md) | An array of player properties. | [optional] 
