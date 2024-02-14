@@ -32,7 +32,7 @@ namespace Fenrir.Api.Client
         /// Version of the package.
         /// </summary>
         /// <value>Version of the package.</value>
-        public const string Version = "0.1.0";
+        public const string Version = "0.1.4";
 
         /// <summary>
         /// Identifier for ISO 8601 DateTime Format
@@ -116,7 +116,7 @@ namespace Fenrir.Api.Client
         public Configuration()
         {
             Proxy = null;
-            UserAgent = WebUtility.UrlEncode("OpenAPI-Generator/0.1.0/csharp");
+            UserAgent = WebUtility.UrlEncode("OpenAPI-Generator/0.1.4/csharp");
             BasePath = "https://api.fenrircloud.com/1.0/api";
             DefaultHeaders = new ConcurrentDictionary<string, string>();
             ApiKey = new ConcurrentDictionary<string, string>();
@@ -539,7 +539,7 @@ namespace Fenrir.Api.Client
             report += "    OS: " + System.Environment.OSVersion + "\n";
             report += "    .NET Framework Version: " + System.Environment.Version  + "\n";
             report += "    Version of the API: v1\n";
-            report += "    SDK Package Version: 0.1.0\n";
+            report += "    SDK Package Version: 0.1.4\n";
 
             return report;
         }
