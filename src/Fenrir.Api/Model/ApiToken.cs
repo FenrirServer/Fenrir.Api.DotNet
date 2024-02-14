@@ -34,12 +34,10 @@ namespace Fenrir.Api.Model
         /// Initializes a new instance of the <see cref="ApiToken" /> class.
         /// </summary>
         /// <param name="applicationUuid">A uuid of the application this token is limited to..</param>
-        /// <param name="isPublic">A boolean value indicating if this token is a private or a public token..</param>
         /// <param name="label">A label for the token..</param>
-        public ApiToken(string applicationUuid = default(string), bool isPublic = default(bool), string label = default(string))
+        public ApiToken(string applicationUuid = default(string), string label = default(string))
         {
             this.ApplicationUuid = applicationUuid;
-            this.IsPublic = isPublic;
             this.Label = label;
         }
 
@@ -67,14 +65,6 @@ namespace Fenrir.Api.Model
         {
             return false;
         }
-        /// <summary>
-        /// A boolean value indicating if this token is a private or a public token.
-        /// </summary>
-        /// <value>A boolean value indicating if this token is a private or a public token.</value>
-        /// <example>true</example>
-        [DataMember(Name = "is_public", EmitDefaultValue = true)]
-        public bool IsPublic { get; set; }
-
         /// <summary>
         /// A label for the token.
         /// </summary>
@@ -141,7 +131,6 @@ namespace Fenrir.Api.Model
             sb.Append("class ApiToken {\n");
             sb.Append("  ApplicationUuid: ").Append(ApplicationUuid).Append("\n");
             sb.Append("  Created: ").Append(Created).Append("\n");
-            sb.Append("  IsPublic: ").Append(IsPublic).Append("\n");
             sb.Append("  Label: ").Append(Label).Append("\n");
             sb.Append("  TokenPlaintext: ").Append(TokenPlaintext).Append("\n");
             sb.Append("  Updated: ").Append(Updated).Append("\n");

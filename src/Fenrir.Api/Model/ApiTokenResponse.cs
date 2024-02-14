@@ -33,15 +33,16 @@ namespace Fenrir.Api.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ApiTokenResponse" /> class.
         /// </summary>
-        /// <param name="apiToken">apiToken.</param>
+        /// <param name="apiToken">API token.</param>
         public ApiTokenResponse(ApiToken apiToken = default(ApiToken))
         {
             this.ApiToken = apiToken;
         }
 
         /// <summary>
-        /// Gets or Sets ApiToken
+        /// API token
         /// </summary>
+        /// <value>API token</value>
         [DataMember(Name = "api_token", EmitDefaultValue = false)]
         public ApiToken ApiToken { get; set; }
 

@@ -33,15 +33,16 @@ namespace Fenrir.Api.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ApplicationStatsResponse" /> class.
         /// </summary>
-        /// <param name="stats">stats.</param>
+        /// <param name="stats">Application stats..</param>
         public ApplicationStatsResponse(ApplicationStats stats = default(ApplicationStats))
         {
             this.Stats = stats;
         }
 
         /// <summary>
-        /// Gets or Sets Stats
+        /// Application stats.
         /// </summary>
+        /// <value>Application stats.</value>
         [DataMember(Name = "stats", EmitDefaultValue = false)]
         public ApplicationStats Stats { get; set; }
 

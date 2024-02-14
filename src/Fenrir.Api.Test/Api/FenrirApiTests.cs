@@ -123,10 +123,10 @@ namespace Fenrir.Api.Test.Api
         public void CreateMatchmakingQueueConfigurationTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
-            //string queueUuid = null;
             //string applicationUuid = null;
+            //string queueUuid = null;
             //MatchmakingQueueConfiguration matchmakingQueueConfiguration = null;
-            //var response = instance.CreateMatchmakingQueueConfiguration(queueUuid, applicationUuid, matchmakingQueueConfiguration);
+            //var response = instance.CreateMatchmakingQueueConfiguration(applicationUuid, queueUuid, matchmakingQueueConfiguration);
             //Assert.IsType<MatchmakingQueueConfigurationResponse>(response);
         }
 
@@ -161,9 +161,9 @@ namespace Fenrir.Api.Test.Api
         public void DeleteDeploymentTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
-            //string deploymentUuid = null;
             //string applicationUuid = null;
-            //var response = instance.DeleteDeployment(deploymentUuid, applicationUuid);
+            //string deploymentUuid = null;
+            //var response = instance.DeleteDeployment(applicationUuid, deploymentUuid);
             //Assert.IsType<Response>(response);
         }
 
@@ -174,9 +174,9 @@ namespace Fenrir.Api.Test.Api
         public void DeleteMatchmakingQueueTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
-            //string queueUuid = null;
             //string applicationUuid = null;
-            //var response = instance.DeleteMatchmakingQueue(queueUuid, applicationUuid);
+            //string queueUuid = null;
+            //var response = instance.DeleteMatchmakingQueue(applicationUuid, queueUuid);
             //Assert.IsType<Response>(response);
         }
 
@@ -222,9 +222,9 @@ namespace Fenrir.Api.Test.Api
         public void GetApplicationConfigurationTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
-            //string configurationUuid = null;
             //string applicationUuid = null;
-            //var response = instance.GetApplicationConfiguration(configurationUuid, applicationUuid);
+            //string configurationUuid = null;
+            //var response = instance.GetApplicationConfiguration(applicationUuid, configurationUuid);
             //Assert.IsType<ApplicationConfigurationResponse>(response);
         }
 
@@ -283,9 +283,9 @@ namespace Fenrir.Api.Test.Api
         public void GetCurrentMatchmakingQueueConfigurationTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
-            //string queueUuid = null;
             //string applicationUuid = null;
-            //var response = instance.GetCurrentMatchmakingQueueConfiguration(queueUuid, applicationUuid);
+            //string queueUuid = null;
+            //var response = instance.GetCurrentMatchmakingQueueConfiguration(applicationUuid, queueUuid);
             //Assert.IsType<MatchmakingQueueConfigurationResponse>(response);
         }
 
@@ -296,9 +296,9 @@ namespace Fenrir.Api.Test.Api
         public void GetDeploymentTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
-            //string deploymentUuid = null;
             //string applicationUuid = null;
-            //var response = instance.GetDeployment(deploymentUuid, applicationUuid);
+            //string deploymentUuid = null;
+            //var response = instance.GetDeployment(applicationUuid, deploymentUuid);
             //Assert.IsType<DeploymentResponse>(response);
         }
 
@@ -309,10 +309,10 @@ namespace Fenrir.Api.Test.Api
         public void GetDeploymentStatsTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
-            //string deploymentUuid = null;
             //string applicationUuid = null;
+            //string deploymentUuid = null;
             //List<string> filter = null;
-            //var response = instance.GetDeploymentStats(deploymentUuid, applicationUuid, filter);
+            //var response = instance.GetDeploymentStats(applicationUuid, deploymentUuid, filter);
             //Assert.IsType<DeploymentStatsResponse>(response);
         }
 
@@ -347,10 +347,10 @@ namespace Fenrir.Api.Test.Api
         public void GetInstanceTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
+            //string applicationUuid = null;
             //string deploymentUuid = null;
             //string instanceUuid = null;
-            //string applicationUuid = null;
-            //var response = instance.GetInstance(deploymentUuid, instanceUuid, applicationUuid);
+            //var response = instance.GetInstance(applicationUuid, deploymentUuid, instanceUuid);
             //Assert.IsType<ApplicationInstanceResponse>(response);
         }
 
@@ -361,10 +361,10 @@ namespace Fenrir.Api.Test.Api
         public void GetInstanceLogsTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
+            //string applicationUuid = null;
             //string deploymentUuid = null;
             //string instanceUuid = null;
-            //string applicationUuid = null;
-            //var response = instance.GetInstanceLogs(deploymentUuid, instanceUuid, applicationUuid);
+            //var response = instance.GetInstanceLogs(applicationUuid, deploymentUuid, instanceUuid);
             //Assert.IsType<InstanceLogs>(response);
         }
 
@@ -375,10 +375,10 @@ namespace Fenrir.Api.Test.Api
         public void GetInstanceLogsPreviewTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
+            //string applicationUuid = null;
             //string deploymentUuid = null;
             //string instanceUuid = null;
-            //string applicationUuid = null;
-            //var response = instance.GetInstanceLogsPreview(deploymentUuid, instanceUuid, applicationUuid);
+            //var response = instance.GetInstanceLogsPreview(applicationUuid, deploymentUuid, instanceUuid);
             //Assert.IsType<InstanceLogsPreview>(response);
         }
 
@@ -389,9 +389,9 @@ namespace Fenrir.Api.Test.Api
         public void GetInstancesTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
-            //string deploymentUuid = null;
             //string applicationUuid = null;
-            //var response = instance.GetInstances(deploymentUuid, applicationUuid);
+            //string deploymentUuid = null;
+            //var response = instance.GetInstances(applicationUuid, deploymentUuid);
             //Assert.IsType<ApplicationInstanceListResponse>(response);
         }
 
@@ -402,9 +402,9 @@ namespace Fenrir.Api.Test.Api
         public void GetMatchmakingQueueTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
-            //string queueUuid = null;
             //string applicationUuid = null;
-            //var response = instance.GetMatchmakingQueue(queueUuid, applicationUuid);
+            //string queueUuid = null;
+            //var response = instance.GetMatchmakingQueue(applicationUuid, queueUuid);
             //Assert.IsType<MatchmakingQueueResponse>(response);
         }
 
@@ -415,10 +415,10 @@ namespace Fenrir.Api.Test.Api
         public void GetMatchmakingQueueConfigurationTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
-            //string configurationUuid = null;
-            //string queueUuid = null;
             //string applicationUuid = null;
-            //var response = instance.GetMatchmakingQueueConfiguration(configurationUuid, queueUuid, applicationUuid);
+            //string queueUuid = null;
+            //string configurationUuid = null;
+            //var response = instance.GetMatchmakingQueueConfiguration(applicationUuid, queueUuid, configurationUuid);
             //Assert.IsType<MatchmakingQueueConfigurationResponse>(response);
         }
 
@@ -429,9 +429,9 @@ namespace Fenrir.Api.Test.Api
         public void GetMatchmakingQueueConfigurationsTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
-            //string queueUuid = null;
             //string applicationUuid = null;
-            //var response = instance.GetMatchmakingQueueConfigurations(queueUuid, applicationUuid);
+            //string queueUuid = null;
+            //var response = instance.GetMatchmakingQueueConfigurations(applicationUuid, queueUuid);
             //Assert.IsType<MatchmakingQueueConfigurationListResponse>(response);
         }
 
@@ -467,10 +467,10 @@ namespace Fenrir.Api.Test.Api
         public void UpdateMatchmakingQueueTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
-            //string queueUuid = null;
             //string applicationUuid = null;
+            //string queueUuid = null;
             //MatchmakingQueue matchmakingQueue = null;
-            //var response = instance.UpdateMatchmakingQueue(queueUuid, applicationUuid, matchmakingQueue);
+            //var response = instance.UpdateMatchmakingQueue(applicationUuid, queueUuid, matchmakingQueue);
             //Assert.IsType<MatchmakingQueueResponse>(response);
         }
     }

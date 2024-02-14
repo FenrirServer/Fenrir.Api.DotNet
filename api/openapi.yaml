@@ -340,14 +340,14 @@ paths:
       parameters:
       - explode: false
         in: path
-        name: configuration_uuid
+        name: application_uuid
         required: true
         schema:
           type: string
         style: simple
       - explode: false
         in: path
-        name: application_uuid
+        name: configuration_uuid
         required: true
         schema:
           type: string
@@ -439,14 +439,14 @@ paths:
       parameters:
       - explode: false
         in: path
-        name: deployment_uuid
+        name: application_uuid
         required: true
         schema:
           type: string
         style: simple
       - explode: false
         in: path
-        name: application_uuid
+        name: deployment_uuid
         required: true
         schema:
           type: string
@@ -472,14 +472,14 @@ paths:
       parameters:
       - explode: false
         in: path
-        name: deployment_uuid
+        name: application_uuid
         required: true
         schema:
           type: string
         style: simple
       - explode: false
         in: path
-        name: application_uuid
+        name: deployment_uuid
         required: true
         schema:
           type: string
@@ -506,14 +506,14 @@ paths:
       parameters:
       - explode: false
         in: path
-        name: deployment_uuid
+        name: application_uuid
         required: true
         schema:
           type: string
         style: simple
       - explode: false
         in: path
-        name: application_uuid
+        name: deployment_uuid
         required: true
         schema:
           type: string
@@ -540,6 +540,13 @@ paths:
       parameters:
       - explode: false
         in: path
+        name: application_uuid
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: false
+        in: path
         name: deployment_uuid
         required: true
         schema:
@@ -548,13 +555,6 @@ paths:
       - explode: false
         in: path
         name: instance_uuid
-        required: true
-        schema:
-          type: string
-        style: simple
-      - explode: false
-        in: path
-        name: application_uuid
         required: true
         schema:
           type: string
@@ -581,6 +581,13 @@ paths:
       parameters:
       - explode: false
         in: path
+        name: application_uuid
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: false
+        in: path
         name: deployment_uuid
         required: true
         schema:
@@ -589,13 +596,6 @@ paths:
       - explode: false
         in: path
         name: instance_uuid
-        required: true
-        schema:
-          type: string
-        style: simple
-      - explode: false
-        in: path
-        name: application_uuid
         required: true
         schema:
           type: string
@@ -622,6 +622,13 @@ paths:
       parameters:
       - explode: false
         in: path
+        name: application_uuid
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: false
+        in: path
         name: deployment_uuid
         required: true
         schema:
@@ -630,13 +637,6 @@ paths:
       - explode: false
         in: path
         name: instance_uuid
-        required: true
-        schema:
-          type: string
-        style: simple
-      - explode: false
-        in: path
-        name: application_uuid
         required: true
         schema:
           type: string
@@ -661,6 +661,20 @@ paths:
       description: Retrieves deployment stats.
       operationId: get_deployment_stats
       parameters:
+      - explode: false
+        in: path
+        name: application_uuid
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: deployment_uuid
+        required: true
+        schema:
+          type: string
+        style: simple
       - explode: true
         in: query
         name: filter
@@ -670,20 +684,6 @@ paths:
             type: string
           type: array
         style: form
-      - explode: false
-        in: path
-        name: deployment_uuid
-        required: true
-        schema:
-          type: string
-        style: simple
-      - explode: false
-        in: path
-        name: application_uuid
-        required: true
-        schema:
-          type: string
-        style: simple
       responses:
         "200":
           content:
@@ -794,14 +794,14 @@ paths:
       parameters:
       - explode: false
         in: path
-        name: queue_uuid
+        name: application_uuid
         required: true
         schema:
           type: string
         style: simple
       - explode: false
         in: path
-        name: application_uuid
+        name: queue_uuid
         required: true
         schema:
           type: string
@@ -827,14 +827,14 @@ paths:
       parameters:
       - explode: false
         in: path
-        name: queue_uuid
+        name: application_uuid
         required: true
         schema:
           type: string
         style: simple
       - explode: false
         in: path
-        name: application_uuid
+        name: queue_uuid
         required: true
         schema:
           type: string
@@ -860,14 +860,14 @@ paths:
       parameters:
       - explode: false
         in: path
-        name: queue_uuid
+        name: application_uuid
         required: true
         schema:
           type: string
         style: simple
       - explode: false
         in: path
-        name: application_uuid
+        name: queue_uuid
         required: true
         schema:
           type: string
@@ -902,14 +902,14 @@ paths:
       parameters:
       - explode: false
         in: path
-        name: queue_uuid
+        name: application_uuid
         required: true
         schema:
           type: string
         style: simple
       - explode: false
         in: path
-        name: application_uuid
+        name: queue_uuid
         required: true
         schema:
           type: string
@@ -935,14 +935,14 @@ paths:
       parameters:
       - explode: false
         in: path
-        name: queue_uuid
+        name: application_uuid
         required: true
         schema:
           type: string
         style: simple
       - explode: false
         in: path
-        name: application_uuid
+        name: queue_uuid
         required: true
         schema:
           type: string
@@ -981,14 +981,14 @@ paths:
       parameters:
       - explode: false
         in: path
-        name: queue_uuid
+        name: application_uuid
         required: true
         schema:
           type: string
         style: simple
       - explode: false
         in: path
-        name: application_uuid
+        name: queue_uuid
         required: true
         schema:
           type: string
@@ -1015,7 +1015,7 @@ paths:
       parameters:
       - explode: false
         in: path
-        name: configuration_uuid
+        name: application_uuid
         required: true
         schema:
           type: string
@@ -1029,7 +1029,7 @@ paths:
         style: simple
       - explode: false
         in: path
-        name: application_uuid
+        name: configuration_uuid
         required: true
         schema:
           type: string
@@ -1054,6 +1054,13 @@ paths:
       description: Retrieves application stats.
       operationId: get_application_stats
       parameters:
+      - explode: false
+        in: path
+        name: application_uuid
+        required: true
+        schema:
+          type: string
+        style: simple
       - explode: true
         in: query
         name: filter
@@ -1063,13 +1070,6 @@ paths:
             type: string
           type: array
         style: form
-      - explode: false
-        in: path
-        name: application_uuid
-        required: true
-        schema:
-          type: string
-        style: simple
       responses:
         "200":
           content:
@@ -1105,7 +1105,6 @@ components:
         token_plaintext: 4f03ff9f9caf4e1388126436b0c841f4
         application_uuid: e1bbf5bd471c484fa2f7989f048dbbbc
         created: 2024-01-22T19:28:42Z
-        is_public: true
         label: my-token
         updated: 2024-01-22T19:28:42Z
         uuid: e1bee97c79ac454bb8bcb81d37ec7e46
@@ -1120,11 +1119,6 @@ components:
           format: date-time
           readOnly: true
           type: string
-        is_public:
-          description: A boolean value indicating if this token is a private or a
-            public token.
-          example: true
-          type: boolean
         label:
           description: A label for the token.
           example: my-token
@@ -1154,14 +1148,12 @@ components:
         - token_plaintext: 4f03ff9f9caf4e1388126436b0c841f4
           application_uuid: e1bbf5bd471c484fa2f7989f048dbbbc
           created: 2024-01-22T19:28:42Z
-          is_public: true
           label: my-token
           updated: 2024-01-22T19:28:42Z
           uuid: e1bee97c79ac454bb8bcb81d37ec7e46
         - token_plaintext: 4f03ff9f9caf4e1388126436b0c841f4
           application_uuid: e1bbf5bd471c484fa2f7989f048dbbbc
           created: 2024-01-22T19:28:42Z
-          is_public: true
           label: my-token
           updated: 2024-01-22T19:28:42Z
           uuid: e1bee97c79ac454bb8bcb81d37ec7e46
@@ -1556,6 +1548,13 @@ components:
           description: Application stats.
       type: object
     BadRequestResponse:
+      example:
+        message: Invalid Request
+        errors:
+        - field: configuration.name
+          error: must not contain whitespaces.
+        - field: configuration.name
+          error: must not contain whitespaces.
       properties:
         errors:
           description: An optional list of validation errors
@@ -2150,6 +2149,8 @@ components:
           description: A matchmaking queue.
       type: object
     NotFoundResponse:
+      example:
+        message: Application not found
       properties:
         message:
           description: An error message.
@@ -2188,6 +2189,9 @@ components:
           type: string
       type: object
     ValidationError:
+      example:
+        field: configuration.name
+        error: must not contain whitespaces.
       properties:
         error:
           description: A detailed description of an error.

@@ -72,15 +72,6 @@ namespace Fenrir.Api.Test.Model
         }
 
         /// <summary>
-        /// Test the property 'IsPublic'
-        /// </summary>
-        [Fact]
-        public void IsPublicTest()
-        {
-            // TODO unit test for the property 'IsPublic'
-        }
-
-        /// <summary>
         /// Test the property 'Label'
         /// </summary>
         [Fact]
