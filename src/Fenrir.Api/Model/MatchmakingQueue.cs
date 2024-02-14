@@ -38,7 +38,7 @@ namespace Fenrir.Api.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="MatchmakingQueue" /> class.
         /// </summary>
-        /// <param name="varConfiguration">varConfiguration (required).</param>
+        /// <param name="varConfiguration">An initial configuration of the matchmaking queue. (required).</param>
         /// <param name="name">A name of the matchmaking queue. (required).</param>
         public MatchmakingQueue(MatchmakingQueueConfiguration varConfiguration = default(MatchmakingQueueConfiguration), string name = default(string))
         {
@@ -73,8 +73,9 @@ namespace Fenrir.Api.Model
             return false;
         }
         /// <summary>
-        /// Gets or Sets VarConfiguration
+        /// An initial configuration of the matchmaking queue.
         /// </summary>
+        /// <value>An initial configuration of the matchmaking queue.</value>
         [DataMember(Name = "configuration", IsRequired = true, EmitDefaultValue = true)]
         public MatchmakingQueueConfiguration VarConfiguration { get; set; }
 

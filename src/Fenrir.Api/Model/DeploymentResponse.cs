@@ -33,15 +33,16 @@ namespace Fenrir.Api.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="DeploymentResponse" /> class.
         /// </summary>
-        /// <param name="deployment">deployment.</param>
+        /// <param name="deployment">An application deployment..</param>
         public DeploymentResponse(Deployment deployment = default(Deployment))
         {
             this.Deployment = deployment;
         }
 
         /// <summary>
-        /// Gets or Sets Deployment
+        /// An application deployment.
         /// </summary>
+        /// <value>An application deployment.</value>
         [DataMember(Name = "deployment", EmitDefaultValue = false)]
         public Deployment Deployment { get; set; }
 

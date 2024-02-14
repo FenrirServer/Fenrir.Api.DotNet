@@ -38,7 +38,7 @@ namespace Fenrir.Api.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="Application" /> class.
         /// </summary>
-        /// <param name="varConfiguration">varConfiguration (required).</param>
+        /// <param name="varConfiguration">Initial configuration of the application. (required).</param>
         /// <param name="name">A unique name of the application. (required).</param>
         public Application(ApplicationConfiguration varConfiguration = default(ApplicationConfiguration), string name = default(string))
         {
@@ -57,8 +57,9 @@ namespace Fenrir.Api.Model
         }
 
         /// <summary>
-        /// Gets or Sets VarConfiguration
+        /// Initial configuration of the application.
         /// </summary>
+        /// <value>Initial configuration of the application.</value>
         [DataMember(Name = "configuration", IsRequired = true, EmitDefaultValue = true)]
         public ApplicationConfiguration VarConfiguration { get; set; }
 

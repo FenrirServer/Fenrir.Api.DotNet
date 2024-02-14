@@ -33,15 +33,16 @@ namespace Fenrir.Api.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ApplicationConfigurationResponse" /> class.
         /// </summary>
-        /// <param name="varConfiguration">varConfiguration.</param>
+        /// <param name="varConfiguration">An application configuration..</param>
         public ApplicationConfigurationResponse(ApplicationConfiguration varConfiguration = default(ApplicationConfiguration))
         {
             this.VarConfiguration = varConfiguration;
         }
 
         /// <summary>
-        /// Gets or Sets VarConfiguration
+        /// An application configuration.
         /// </summary>
+        /// <value>An application configuration.</value>
         [DataMember(Name = "configuration", EmitDefaultValue = false)]
         public ApplicationConfiguration VarConfiguration { get; set; }
 

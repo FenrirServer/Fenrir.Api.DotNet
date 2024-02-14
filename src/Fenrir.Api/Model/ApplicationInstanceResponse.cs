@@ -33,15 +33,16 @@ namespace Fenrir.Api.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ApplicationInstanceResponse" /> class.
         /// </summary>
-        /// <param name="instance">instance.</param>
+        /// <param name="instance">An application instance..</param>
         public ApplicationInstanceResponse(ApplicationInstance instance = default(ApplicationInstance))
         {
             this.Instance = instance;
         }
 
         /// <summary>
-        /// Gets or Sets Instance
+        /// An application instance.
         /// </summary>
+        /// <value>An application instance.</value>
         [DataMember(Name = "instance", EmitDefaultValue = false)]
         public ApplicationInstance Instance { get; set; }
 

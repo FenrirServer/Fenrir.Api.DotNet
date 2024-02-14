@@ -33,15 +33,16 @@ namespace Fenrir.Api.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="MatchmakingQueueConfigurationResponse" /> class.
         /// </summary>
-        /// <param name="varConfiguration">varConfiguration.</param>
+        /// <param name="varConfiguration">A matchmaking queue configuration..</param>
         public MatchmakingQueueConfigurationResponse(MatchmakingQueueConfiguration varConfiguration = default(MatchmakingQueueConfiguration))
         {
             this.VarConfiguration = varConfiguration;
         }
 
         /// <summary>
-        /// Gets or Sets VarConfiguration
+        /// A matchmaking queue configuration.
         /// </summary>
+        /// <value>A matchmaking queue configuration.</value>
         [DataMember(Name = "configuration", EmitDefaultValue = false)]
         public MatchmakingQueueConfiguration VarConfiguration { get; set; }
 

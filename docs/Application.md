@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**VarConfiguration** | [**ApplicationConfiguration**](ApplicationConfiguration.md) |  | 
+**VarConfiguration** | [**ApplicationConfiguration**](ApplicationConfiguration.md) | Initial configuration of the application. | 
 **Created** | **DateTime** | Time when the application was created. | [optional] [readonly] 
 **Name** | **string** | A unique name of the application. | 
 **Updated** | **DateTime** | Time when the application was last updated. | [optional] [readonly] 
